@@ -1,0 +1,26 @@
+<template>
+  <footer
+    id="app-footer"
+    class="
+      flex
+      justify-between
+      py-2
+      px-4
+      border-t
+      bg-gray-50
+      border-gray-300
+      dark:border-gray-700
+      dark:bg-gray-600
+      dark:text-gray-50
+    "
+  >
+    <div>
+      <span class="font-bold">Fabio Di Stasio</span> <span style="font-family: NimbusMono">&copy;</span> {{ new Date().getFullYear() }}
+    </div>
+    <div>
+      <span
+        class="font-bold"
+      />
+    </div>
+  </footer>
+</template>
