@@ -6,15 +6,12 @@
       justify-between
       py-2
       px-4
-      border-t
       bg-gray-50
-      border-gray-300
-      dark:border-gray-700
-      dark:bg-gray-600
+      dark:bg-gray-800
       dark:text-gray-50
     "
   >
-    <div>
+    <div class="text-center">
       <span class="font-bold">Fabio Di Stasio</span> <span style="font-family: NimbusMono">&copy;</span> {{ new Date().getFullYear() }}
     </div>
     <div>

@@ -63,7 +63,7 @@ const buttonClasses = computed(() => {
       return 'font-semibold rounded-xl py-2 px-5 w-22 focus:ring-2 focus:ring-blue-400 bg-gray-600 dark:bg-gray-500 text-gray-200 hover:opacity-80'
     case 'primary':
     default:
-      return 'font-semibold rounded-xl py-2 px-5 w-22 focus:ring-2 focus:ring-blue-400 bg-gradient-to-r from-pax-blue-600 to-pax-blue-700 text-white hover:opacity-80'
+      return 'font-semibold rounded-xl py-2 px-5 w-22 focus:ring-2 focus:ring-blue-400 bg-gradient-to-tr from-orange-600 to-orange-500 text-white hover:opacity-80'
   }
 })
 </script>

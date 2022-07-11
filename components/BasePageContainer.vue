@@ -1,15 +1,12 @@
 <template>
-  <div class="container w-screen h-screen bg-gray-200 dark:bg-gray-700">
-    <div class="flex flex-col justify-between flex-grow h-full overflow-auto">
+  <div class="container bg-gray-200 dark:bg-gray-900">
+    <TheHeader />
+    <div class="flex flex-col justify-between flex-grow">
       <slot />
-      <TheFooter />
     </div>
+    <TheFooter />
   </div>
 </template>
-
-<script setup lang="ts">
-import TheFooter from './TheFooter.vue'
-</script>
 
 <style lang="scss" scoped>
 .container {

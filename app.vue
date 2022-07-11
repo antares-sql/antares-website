@@ -47,6 +47,11 @@ useHead({
     {
       type: 'application/ld+json',
       children: structuredData
+    },
+    {
+      async: true,
+      defer: true,
+      src: 'https://buttons.github.io/buttons.js'
     }
   ]
 })
