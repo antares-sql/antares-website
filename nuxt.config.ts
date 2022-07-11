@@ -5,7 +5,12 @@ import eslintPlugin from 'vite-plugin-eslint'
 export default defineNuxtConfig({
   target: 'static',
   app: {
-    baseURL: '/antares-website/'
+    baseURL: '/antares-website/',
+    head: {
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
+    }
   },
   generate: {
     fallback: '404.html'
