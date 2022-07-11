@@ -40,7 +40,7 @@
             </NuxtLink>
           </div>
           <div class="flex justify-center dark:text-gray-50 px-28 rounded-3xl bg-gradient-to-tl from-rose-400 via-fuchsia-500 to-indigo-500">
-            <img src="../assets/images/screen1.png" alt="Antares screenshot" class="-mb-20 mt-20 rounded-2xl">
+            <img src="~/assets/images/screen1.png" alt="Antares screenshot" class="-mb-20 mt-20 rounded-2xl">
           </div>
         </div>
       </BasePageContent>

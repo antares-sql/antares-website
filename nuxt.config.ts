@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   router: {
     base: '/antares-website/'
   },
+  generate: {
+    fallback: '404.html'
+  },
   vite: {
     plugins: [
       eslintPlugin()
