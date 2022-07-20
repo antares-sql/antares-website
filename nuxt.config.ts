@@ -5,7 +5,7 @@ import eslintPlugin from 'vite-plugin-eslint'
 export default defineNuxtConfig({
   target: 'static',
   app: {
-    baseURL: '/antares-website/',
+    baseURL: '/',
     head: {
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
