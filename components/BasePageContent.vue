@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-grow">
+  <div class="grow bg-gray-200 dark:bg-gray-900">
     <div
       class="mx-auto max-w-screen-xl px-4"
       :style="{'grid-template-columns': `repeat(${gridSize}, minmax(0, 1fr))`, gap: `${gapSize*0.25}rem`}"

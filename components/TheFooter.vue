@@ -4,9 +4,9 @@
     class="
       flex
       justify-between
+      bg-gray-50
       py-2
       px-4
-      bg-gray-50
       dark:bg-gray-800
       dark:text-gray-50
     "

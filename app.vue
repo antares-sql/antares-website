@@ -1,5 +1,5 @@
 <template>
-  <div class="dark">
+  <div class="dark min-h-screen dark:bg-gray-900">
     <BasePageContainer>
       <NuxtPage />
     </BasePageContainer>
@@ -7,6 +7,8 @@
 </template>
 
 <script setup lang="ts">
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import '@/assets/scss/main.scss'
 import BasePageContainer from './components/BasePageContainer.vue'
 
@@ -54,5 +56,9 @@ useHead({
       src: 'https://buttons.github.io/buttons.js'
     }
   ]
+})
+
+onMounted(() => {
+  AOS.init()
 })
 </script>

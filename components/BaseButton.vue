@@ -1,13 +1,13 @@
 <template>
   <button
-    class="flex justify-center items-center text-uppercase"
+    class="flex items-center justify-center uppercase"
     :class="[{'loading': isLoading}, buttonClasses]"
     :type="type"
     :disabled="isLoading"
   >
     <svg
       v-if="isLoading"
-      class="animate-spin ml-3 mr-3 h-6 w-6"
+      class="mx-3 h-6 w-6 animate-spin"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"

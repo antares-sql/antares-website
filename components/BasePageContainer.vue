@@ -1,7 +1,7 @@
 <template>
-  <div class="container bg-gray-200 dark:bg-gray-900">
+  <div class="container min-h-screen bg-gray-200 dark:bg-gray-800">
     <TheHeader />
-    <div class="flex flex-col justify-between flex-grow">
+    <div class="flex grow flex-col justify-between">
       <slot />
     </div>
     <TheFooter />
