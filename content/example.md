@@ -1,8 +1,7 @@
 ---
-title: Dummy
+title: Example
 author: Fabio Di Stasio
 date: "2022-07-08 12:00:00"
-dummy: Dummy
 ---
 
 ## Lorem ipsum

@@ -12,6 +12,10 @@ export default defineNuxtConfig({
       ]
     }
   },
+  generate: {
+    fallback: '404.html',
+    routes: ['/404.html']
+  },
   vite: {
     plugins: [
       eslintPlugin()
