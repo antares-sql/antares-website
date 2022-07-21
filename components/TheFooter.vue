@@ -7,7 +7,7 @@
       bg-gray-50
       py-2
       px-4
-      dark:bg-gray-800
+      dark:bg-slate-800
       dark:text-gray-50
     "
   >

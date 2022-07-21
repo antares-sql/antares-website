@@ -1,7 +1,7 @@
 <!-- eslint-disable tailwindcss/no-custom-classname -->
 <template>
   <header class="w-full">
-    <nav class="border-gray-200 bg-white px-4 py-2.5 dark:bg-gray-800 lg:px-6">
+    <nav class="border-gray-200 bg-white px-4 py-2.5 dark:bg-slate-800 lg:px-6">
       <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between">
         <a href="/" class="flex items-center">
           <img src="~/assets/images/logo.png" class="mr-3 h-6 sm:h-9" alt="Antares Logo">

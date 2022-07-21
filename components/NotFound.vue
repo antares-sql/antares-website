@@ -6,6 +6,7 @@
     <BasePageContent>
       <div class="-mt-24 flex h-screen items-center justify-center">
         <div class="space-y-10 pt-44 text-center">
+          <Error404Icon class="mx-auto dark:text-gray-50" size="128" />
           <h1 class="text-7xl font-bold dark:text-gray-50">
             Page not found!
           </h1>
@@ -40,5 +41,5 @@
   </div>
 </template>
 <script setup>
-import { Home2Icon } from 'vue-tabler-icons'
+import { Home2Icon, Error404Icon } from 'vue-tabler-icons'
 </script>
