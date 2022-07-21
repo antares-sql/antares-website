@@ -8,16 +8,10 @@
           <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-gray-50">Antares SQL</span>
         </a>
         <div class="flex items-center lg:order-2">
-          <div class="mx-2 mt-1">
-            <a
-              class="github-button"
-              href="https://github.com/fabio286/antares"
-              data-color-scheme="no-preference: light; light: light; dark: light;"
-              data-icon="octicon-star"
-              data-size="large"
-              data-show-count="true"
-              aria-label="Star fabio286/antares on GitHub"
-            >Star</a>
+          <div class="mx-2 leading-none">
+            <GithubButton href="https://github.com/fabio286/antares" data-show-count="true" data-size="large">
+              Star
+            </GithubButton>
           </div>
           <a title="GitHub Repository" target="_blank" class="mx-2" href="https://github.com/Fabio286/antares">
             <BrandGithubIcon class="text-gray-50" />
@@ -59,4 +53,5 @@
 </template>
 <script setup>
 import { BrandGithubIcon, BrandTwitterIcon } from 'vue-tabler-icons'
+import GithubButton from 'vue-github-button'
 </script>

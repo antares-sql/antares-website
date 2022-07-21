@@ -5,7 +5,6 @@ import eslintPlugin from 'vite-plugin-eslint'
 export default defineNuxtConfig({
   target: 'static',
   app: {
-    baseURL: '/',
     head: {
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -28,5 +27,7 @@ export default defineNuxtConfig({
   buildModules: [
     '@nuxtjs/tailwindcss'
   ],
-  content: {}
+  content: {
+    sources: ['content']
+  }
 })
