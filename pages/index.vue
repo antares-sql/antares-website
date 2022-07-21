@@ -55,7 +55,7 @@
               </NuxtLink>
             </div>
             <div class="relative min-h-fit flex-1 overflow-hidden">
-              <img src="/images/screen1c.png" alt="Antares screenshot" class="relative rounded-l-lg object-cover">
+              <img src="/images/screen1c.png" alt="Antares screenshot" class="relative -right-1 rounded-l-lg object-cover">
             </div>
           </div>
         </div>
