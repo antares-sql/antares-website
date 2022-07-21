@@ -6,23 +6,24 @@
     </Head>
     <main class="flex items-center justify-center">
       <BasePageContent>
-        <div class="pt-20 pb-10" data-aos="fade-in" data-aos-duration="1500">
+        <div class="pb-10 pt-5 lg:pt-20" data-aos="fade-in" data-aos-duration="1500">
           <div
             class="
               gradient-animate
-              flex
-              justify-center
               rounded-3xl
               bg-gradient-to-tl
               from-rose-400
               via-orange-500
               to-purple-500
-              p-16
-              pr-0
+              p-6
               dark:text-gray-50
+              lg:flex
+              lg:justify-center
+              lg:p-16
+              lg:pr-0
             "
           >
-            <div class="flex flex-1 flex-col content-center justify-center space-y-10 py-10 text-left">
+            <div class="space-y-10 py-10 text-center lg:flex lg:flex-1 lg:flex-col lg:content-center lg:justify-center lg:text-left">
               <h1 class="text-5xl font-bold dark:text-gray-50">
                 Open source SQL client<br>
                 made to be simple.
@@ -34,6 +35,7 @@
               <NuxtLink
                 to="/downloads"
                 class="
+                  m-auto
                   flex
                   w-fit
                   items-center
@@ -49,18 +51,19 @@
                   hover:opacity-80
                   focus:ring-2
                   focus:ring-blue-400
+                  lg:m-0
                 "
               >
                 <DownloadIcon class="mr-2" /> Download Antares
               </NuxtLink>
             </div>
-            <div class="relative min-h-fit flex-1 overflow-hidden">
-              <img src="/images/screen1c.png" alt="Antares screenshot" class="relative -right-1 rounded-l-lg object-cover">
+            <div class="relative hidden min-h-fit flex-1 overflow-hidden lg:block">
+              <img src="/images/screen1c.png" alt="Antares screenshot" class="relative rounded-l-lg object-cover lg:-right-1">
             </div>
           </div>
         </div>
 
-        <div class="space-y-20 pb-40" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="500">
+        <div class="space-y-20 pb-16 lg:pb-40" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="500">
           <div class="space-y-5 pt-24 text-center">
             <h2 class="text-5xl font-bold dark:text-gray-50">
               About Antares Project
@@ -81,11 +84,12 @@
           v-for="(card, i) in cards"
           :key="i"
           class="
-            mb-32
+            mb-16
             max-w-none
             rounded-3xl
             bg-slate-800
             dark:text-gray-50
+            lg:mb-32
           "
           data-aos="fade-in"
           data-aos-duration="1500"

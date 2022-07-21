@@ -12,10 +12,6 @@ import 'aos/dist/aos.css'
 import '@/assets/scss/main.scss'
 import BasePageContainer from './components/BasePageContainer.vue'
 
-// const { data: navigation } = await useAsyncData('navigation', () => {
-//   return fetchContentNavigation()
-// })
-
 const structuredData = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',

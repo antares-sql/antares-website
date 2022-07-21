@@ -14,10 +14,5 @@
     <div class="text-center">
       <span class="font-bold">Fabio Di Stasio</span> <span style="font-family: NimbusMono">&copy;</span> {{ new Date().getFullYear() }}
     </div>
-    <div>
-      <span
-        class="font-bold"
-      />
-    </div>
   </footer>
 </template>
