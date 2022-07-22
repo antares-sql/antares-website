@@ -8,7 +8,7 @@
               <h1 class="text-5xl">
                 {{ doc.title }}
               </h1>
-              <small>by {{ doc.author }} - {{ doc.date }}</small>
+              <!-- <small>by {{ doc.author }} - {{ doc.date }}</small> -->
             </div>
             <ContentRenderer
               class="

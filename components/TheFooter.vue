@@ -14,5 +14,13 @@
     <div class="text-center">
       <span class="font-bold">Fabio Di Stasio</span> <span style="font-family: NimbusMono">&copy;</span> {{ new Date().getFullYear() }}
     </div>
+    <div class="text-center">
+      <a href="https://github.com/Fabio286/antares/blob/master/LICENSE" target="_blank">
+        License
+      </a> •
+      <NuxtLink to="/_privacy">
+        Privacy
+      </NuxtLink>
+    </div>
   </footer>
 </template>

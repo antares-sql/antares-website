@@ -97,13 +97,14 @@
         >
           <BasePageContentCard :card="card" />
         </div>
+        <BasePageContentGrid :blocks="blocks" />
       </BasePageContent>
     </main>
   </div>
 </template>
 <script setup lang="ts">
-import { DownloadIcon } from 'vue-tabler-icons'
 import BasePageContentCard from '~/components/BasePageContentCard.vue'
+import BasePageContentGrid from '~/components/BasePageContentGrid.vue'
 
 const cards = [
   {
@@ -115,8 +116,9 @@ const cards = [
       <b>fast</b> and with a <b>modern and intuitive UI</b>.<br>
       All features are accessible with a few clicks, without having to search for them in dozens of drop-down
       menus; productivity comes first.`,
-    imagePath: '/images/screen2.png',
-    imagePosition: 'right' as 'left' | 'right'
+    mediaPath: '/videos/video1.webm',
+    mediaPosition: 'right' as 'left' | 'right',
+    isVideo: true
   },
   {
     title: 'Autocomplete or format your queries',
@@ -125,8 +127,8 @@ const cards = [
     content: `
       Thanks to the auto-completion functions and the suggestion of database elements write queries will be a pleasure.<br>
       With the formatter function the queries you write will be even more readable.`,
-    imagePath: '/images/screen3.png',
-    imagePosition: 'left' as 'left' | 'right'
+    mediaPath: '/images/screen3.png',
+    mediaPosition: 'left' as 'left' | 'right'
   },
   {
     title: 'All data you need',
@@ -135,8 +137,31 @@ const cards = [
     content: `
       Antares SQL integrates a table filling function that allows you to <b>generate a large number of fake data</b> to be chosen from different categories, such as names, addresses, dates, texts or financial data.
       This feature will help you set up your development environment, saving you valuable time.`,
-    imagePath: '/images/screen4.png',
-    imagePosition: 'right' as 'left' | 'right'
+    mediaPath: '/images/screen4.png',
+    mediaPosition: 'right' as 'left' | 'right'
+  }
+]
+
+const blocks = [
+  {
+    title: 'FREE AND OPEN SOURCE',
+    content: 'No paid content, subscriptions or ads. Antares will be always 100% free and open source.',
+    icon: 'HeartIcon'
+  },
+  {
+    title: 'NEW FEATURES COMES',
+    content: 'This project is currently in development and new features will be released with each update!',
+    icon: 'CometIcon'
+  },
+  {
+    title: 'SECURE',
+    content: 'All saved connections data, including passwords, are encrypted and the key is kept safe.',
+    icon: 'LockIcon'
+  },
+  {
+    title: 'PRIVATE',
+    content: 'No spyware, telemetry or other sort of background activities. Spontaneous feedbacks are enough.',
+    icon: 'WallIcon'
   }
 ]
 </script>

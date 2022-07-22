@@ -26,6 +26,8 @@
     "@types/aos": "~3.0.4",
     "@typescript-eslint/eslint-plugin": "~5.30.5",
     "@typescript-eslint/parser": "~5.30.5",
+    "@vueuse/core": "~8.9.4",
+    "@vueuse/nuxt": "~8.9.4",
     "autoprefixer": "~10.4.7",
     "eslint": "~8.19.0",
     "eslint-plugin-tailwindcss": "~3.6.0",

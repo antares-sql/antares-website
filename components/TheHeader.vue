@@ -20,7 +20,7 @@
             <BrandTwitterIcon class="text-gray-50" />
           </a>
         </div>
-        <div class="">
+        <div class="lg:hidden">
           <button type="button" class="ml-1 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 lg:hidden" aria-controls="mobile-menu-2" @click="isMenuOpen = !isMenuOpen">
             <span class="sr-only">Open main menu</span>
             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" /></svg>
@@ -28,8 +28,8 @@
           </button>
         </div>
         <div class="w-full items-center justify-between lg:order-1 lg:flex lg:w-auto" :class="[isMenuOpen ? 'block' : 'hidden']">
-          <ul class="mt-4 flex flex-col font-medium dark:text-gray-400 lg:mt-0 lg:flex-row lg:space-x-8" @click="isMenuOpen = false">
-            <li>
+          <ul class="mt-4 flex flex-col font-medium dark:text-gray-400 lg:mt-0 lg:flex-row lg:space-x-8">
+            <li @click="isMenuOpen = false">
               <NuxtLink to="/" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">
                 Home
               </NuxtLink>
@@ -39,7 +39,7 @@
                 <a v-if="nav?.children" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">
                   {{ nav.title }}
                 </a>
-                <NuxtLink v-else :to="nav._path" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">
+                <NuxtLink v-else :to="nav._path" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50" @click="isMenuOpen = false">
                   {{ nav.title }}
                 </NuxtLink>
               </li>
@@ -54,7 +54,6 @@
   </header>
 </template>
 <script setup>
-import { BrandGithubIcon, BrandTwitterIcon } from 'vue-tabler-icons'
 import GithubButton from 'vue-github-button'
 
 const isMenuOpen = ref(false)
