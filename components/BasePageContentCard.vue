@@ -31,7 +31,7 @@
         class="w-full overflow-hidden rounded-b-3xl lg:rounded-b-none"
         :class="[card.mediaPosition === 'right' ? 'lg:rounded-tl-2xl lg:rounded-br-2xl': 'lg:rounded-tr-2xl lg:rounded-bl-2xl']"
       >
-        <video ref="player" muted="true">
+        <video ref="player" muted loop>
           <source :src="card.mediaPath" type="video/webm">
           Sorry, your browser doesn't support embedded videos.
         </video>
