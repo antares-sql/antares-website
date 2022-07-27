@@ -13,7 +13,7 @@
       :key="i"
       data-aos="fade-in"
       data-aos-duration="1500"
-      :data-aos-delay="500 * i"
+      :data-aos-delay="200 * i"
       class="
     col-span-4
     space-y-6

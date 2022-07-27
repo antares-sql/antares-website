@@ -95,16 +95,18 @@
           data-aos-duration="1500"
           data-aos-delay="500"
         >
-          <BasePageContentCard :card="card" />
+          <BaseCard :card="card" />
         </div>
-        <BasePageContentGrid :blocks="blocks" />
+        <BaseGrid :blocks="blocks" />
+        <BaseStepper :steps="steps" />
       </BasePageContent>
     </main>
   </div>
 </template>
 <script setup lang="ts">
-import BasePageContentCard from '~/components/BasePageContentCard.vue'
-import BasePageContentGrid from '~/components/BasePageContentGrid.vue'
+import BaseCard from '~/components/BaseCard.vue'
+import BaseGrid from '~/components/BaseGrid.vue'
+import BaseStepper, { Step } from '~/components/BaseStepper.vue'
 
 const cards = [
   {
@@ -146,22 +148,67 @@ const blocks = [
   {
     title: 'FREE AND OPEN SOURCE',
     content: 'No paid content, subscriptions or ads. Antares will be always 100% free and open source.',
-    icon: 'HeartIcon'
+    icon: 'BrandOpenSourceIcon'
   },
   {
     title: 'NEW FEATURES COMES',
-    content: 'This project is currently in development and new features will be released with each update!',
+    content: 'Antares is a constantly developing project and we try to implement new features with each update!',
     icon: 'CometIcon'
   },
   {
-    title: 'SECURE',
-    content: 'All saved connections data, including passwords, are encrypted and the key is kept safe.',
-    icon: 'LockIcon'
+    title: 'COMMUNITY DRIVEN',
+    content: 'We pay close attention to our users\' feedback to create a useful tool for the community.',
+    icon: 'SocialIcon'
   },
   {
     title: 'PRIVATE',
     content: 'No spyware, telemetry or other sort of background activities. Spontaneous feedbacks are enough.',
     icon: 'WallIcon'
+  }
+]
+
+const steps: Step[] = [
+  {
+    title: 'MySQL & MariaDB',
+    subtitle: 'Fully supported',
+    status: 'complete',
+    nextStatus: 'complete',
+    icon: `<div class="relative w-20 h-20">
+      <img class="absolute top-2 left-0 w-12" src="icons/mysql.svg" title="MySQL">
+      <img class="absolute bottom-1 right-1 w-12" src="icons/mariadb.svg" title="MariaDB">
+    </div>`
+  },
+  {
+    title: 'PostgreSQL',
+    subtitle: 'Supported',
+    status: 'complete',
+    nextStatus: 'complete',
+    icon: '<img class="w-16" src="icons/pg.svg" title="PostgreSQL">'
+  },
+  {
+    title: 'SQLite',
+    subtitle: 'Supported',
+    status: 'complete',
+    nextStatus: 'incomplete',
+    icon: '<img class="w-16" src="icons/sqlite.svg" title="SQLite">'
+  },
+  {
+    title: 'SQL Server',
+    subtitle: 'Coming',
+    status: 'incomplete',
+    nextStatus: 'incomplete',
+    icon: '<img class="w-16" src="icons/mssql.svg" title="SQL Server">'
+  },
+  {
+    title: 'More...',
+    subtitle: 'Coming',
+    status: 'incomplete',
+    nextStatus: false,
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="90%" height="90%" fill="none" viewBox="0 0 24 24" stroke="#FFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-12">
+        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+    </svg>`
   }
 ]
 </script>
