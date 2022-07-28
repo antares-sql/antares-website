@@ -59,7 +59,7 @@
             </div>
             <div class="relative hidden min-h-fit flex-1 overflow-hidden rounded-l-xl lg:block">
               <video ref="player" muted loop>
-                <source src="videos/main.webm" type="video/webm">
+                <source src="/videos/main.webm" type="video/webm">
                 Sorry, your browser doesn't support embedded videos.
               </video>
               <!-- <img src="/images/screen1c.png" alt="Antares screenshot" class="relative rounded-l-lg object-cover lg:-right-1"> -->
