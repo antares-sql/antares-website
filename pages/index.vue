@@ -57,8 +57,12 @@
                 <DownloadIcon class="mr-2" /> Download Antares
               </NuxtLink>
             </div>
-            <div class="relative hidden min-h-fit flex-1 overflow-hidden lg:block">
-              <img src="/images/screen1c.png" alt="Antares screenshot" class="relative rounded-l-lg object-cover lg:-right-1">
+            <div class="relative hidden min-h-fit flex-1 overflow-hidden rounded-l-xl lg:block">
+              <video ref="player" muted loop>
+                <source src="videos/main.webm" type="video/webm">
+                Sorry, your browser doesn't support embedded videos.
+              </video>
+              <!-- <img src="/images/screen1c.png" alt="Antares screenshot" class="relative rounded-l-lg object-cover lg:-right-1"> -->
             </div>
           </div>
         </div>
@@ -115,6 +119,8 @@
   </div>
 </template>
 <script setup lang="ts">
+import { ref, watch } from 'vue'
+import { useElementVisibility } from '@vueuse/core'
 import BaseCard from '~/components/BaseCard.vue'
 import BaseGrid from '~/components/BaseGrid.vue'
 import BaseStepper, { Step } from '~/components/BaseStepper.vue'
@@ -140,8 +146,9 @@ const cards = [
     content: `
       Thanks to the auto-completion functions and the suggestion of database elements write queries will be a pleasure.<br>
       With the formatter function the queries you write will be even more readable.`,
-    mediaPath: '/images/screen3.png',
-    mediaPosition: 'left' as 'left' | 'right'
+    mediaPath: '/videos/video2.webm',
+    mediaPosition: 'left' as 'left' | 'right',
+    isVideo: true
   },
   {
     title: 'All data you need',
@@ -222,4 +229,15 @@ const steps: Step[] = [
     </svg>`
   }
 ]
+
+const player = ref(null)
+const isPlayerVisible = useElementVisibility(player)
+
+watch(isPlayerVisible, (val) => {
+  if (val) {
+    player.value.play()
+  } else {
+    player.value.pause()
+  }
+})
 </script>

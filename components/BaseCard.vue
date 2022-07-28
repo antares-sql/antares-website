@@ -28,7 +28,7 @@
     >
       <div
         v-if="card.isVideo"
-        class="w-full overflow-hidden rounded-b-3xl lg:rounded-b-none"
+        class="-mb-1 w-full overflow-hidden rounded-b-3xl lg:rounded-b-none"
         :class="[card.mediaPosition === 'right' ? 'lg:rounded-tl-2xl lg:rounded-br-2xl': 'lg:rounded-tr-2xl lg:rounded-bl-2xl']"
       >
         <video ref="player" muted loop>

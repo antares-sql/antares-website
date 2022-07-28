@@ -7,7 +7,7 @@
     data-aos-duration="1500"
   >
     <slot name="header" />
-    <div class="flex items-center">
+    <div class="flex flex-col items-center lg:flex-row">
       <template v-for="(step,i) in steps" :key="i">
         <div
           class="relative flex items-center"
@@ -27,10 +27,10 @@
             ]"
             v-html="step.icon"
           />
-          <div class="absolute top-0 -ml-8 mt-20 flex h-16 w-32  items-center justify-center text-center text-xl font-medium text-gray-300">
+          <div class="top-0 flex h-16 w-32 items-center pl-2 text-center text-xl font-medium  text-gray-300 lg:absolute lg:-ml-8 lg:mt-20 lg:justify-center lg:pl-0">
             {{ step.title }}
           </div>
-          <div class="absolute top-6 -ml-8 mt-28 w-32 text-center font-medium text-gray-300">
+          <div class="top-6 w-32 text-center font-medium text-gray-300 lg:absolute lg:-ml-8 lg:mt-28">
             {{ step.subtitle }}
           </div>
         </div>
