@@ -15,15 +15,15 @@
       data-aos-duration="1500"
       :data-aos-delay="200 * i"
       class="
-    col-span-4
-    space-y-6
-    rounded-3xl
-    bg-slate-800
-    p-6
-    text-center
-    dark:text-gray-50
-    lg:col-span-1
-  "
+        col-span-4
+        space-y-6
+        rounded-3xl
+        bg-slate-800
+        p-6
+        text-center
+        dark:text-gray-50
+        lg:col-span-1
+      "
     >
       <component :is="block.icon" size="64" class="m-auto" />
       <h4 class="text-xl font-bold">

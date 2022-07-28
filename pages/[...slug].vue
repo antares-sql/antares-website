@@ -31,6 +31,20 @@
     </ContentDoc>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import NotFound from '~/components/NotFound.vue'
+
+const route = useRoute()
+const router = useRouter()
+const routePath = computed(() => route.path)
+
+// Redirect old pages
+switch (routePath.value) {
+  case '/download.html':
+    router.push('/downloads')
+    break
+  case '/privacy.html':
+    router.push('/_privacy')
+    break
+}
 </script>

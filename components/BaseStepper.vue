@@ -27,10 +27,10 @@
             ]"
             v-html="step.icon"
           />
-          <div class="top-0 flex h-16 w-32 items-center pl-2 text-center text-xl font-medium  text-gray-300 lg:absolute lg:-ml-8 lg:mt-20 lg:justify-center lg:pl-0">
+          <div class="top-0 flex h-16 w-32 items-center pl-2 text-center text-xl font-medium  text-gray-300 lg:absolute lg:-ml-6 lg:mt-20 lg:justify-center lg:pl-0">
             {{ step.title }}
           </div>
-          <div class="top-6 w-32 text-center font-medium text-gray-300 lg:absolute lg:-ml-8 lg:mt-28">
+          <div class="top-6 w-32 text-center font-medium text-gray-300 lg:absolute lg:-ml-6 lg:mt-28">
             {{ step.subtitle }}
           </div>
         </div>

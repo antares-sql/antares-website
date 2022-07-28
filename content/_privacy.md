@@ -1,6 +1,6 @@
 ---
 navigation: false
-title: Privacy
+title: Privacy Policy
 ---
 
 ## Application
