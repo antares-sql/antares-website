@@ -98,7 +98,18 @@
           <BaseCard :card="card" />
         </div>
         <BaseGrid :blocks="blocks" />
-        <BaseStepper :steps="steps" />
+        <BaseStepper :steps="steps">
+          <template #header>
+            <div class="space-y-5 pb-24 text-center">
+              <h2 class="text-4xl font-bold dark:text-gray-50">
+                Supported Databases
+              </h2>
+              <div class="text-2xl dark:text-gray-50">
+                Antares SQL is in a beta phase but it fully supports MySQL/MariaDB, PostgreSQL and SQLite. Support to other databases will come in future releases.
+              </div>
+            </div>
+          </template>
+        </BaseStepper>
       </BasePageContent>
     </main>
   </div>

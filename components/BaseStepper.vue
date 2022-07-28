@@ -6,6 +6,7 @@
     data-aos="fade-in"
     data-aos-duration="1500"
   >
+    <slot name="header" />
     <div class="flex items-center">
       <template v-for="(step,i) in steps" :key="i">
         <div
