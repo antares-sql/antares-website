@@ -21,12 +21,12 @@
             class="
                space-y-6
                rounded-3xl
-               bg-slate-800
                p-6
                text-center
                dark:text-gray-50
                lg:col-span-1
             "
+            :class="[(os === 'Windows' ? 'bg-slate-600 -m-4' : 'bg-slate-800')]"
           >
             <svg class="m-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="64" width="64"><rect width="256" height="256" fill="none" />
               <polygon
@@ -121,12 +121,12 @@
             class="
                space-y-6
                rounded-3xl
-               bg-slate-800
                p-6
                text-center
                dark:text-gray-50
                lg:col-span-1
             "
+            :class="[(os === 'Linux' ? 'bg-slate-600 -m-4' : 'bg-slate-800')]"
           >
             <svg class="m-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="64" width="64"><rect width="256" height="256" fill="none" />
               <path
@@ -251,12 +251,12 @@
             class="
                space-y-6
                rounded-3xl
-               bg-slate-800
                p-6
                text-center
                dark:text-gray-50
                lg:col-span-1
             "
+            :class="[(os === 'MacOS' ? 'bg-slate-600 -m-4' : 'bg-slate-800')]"
           >
             <svg class="m-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="64" width="64"><rect width="256" height="256" fill="none" />
               <path
@@ -335,29 +335,30 @@
 </template>
 
 <script setup lang="ts">
+import { Ref, ref } from 'vue'
 import getOS from '~/libs/getOS'
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const { data: releases } = await useFetch<any>('https://api.github.com/repos/fabio286/antares/releases/latest')
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
-const os = ref(getOS())
+const os: Ref<string> = ref(getOS())
 
 const linuxReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: releases.value.assets.find(asset => /^(.*)x86_64.AppImage$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)x86_64.AppImage$/.test(asset.browser_download_url)),
       arch: '64-bit',
       format: 'AppImage'
     },
     {
       code: 'arm64',
-      data: releases.value.assets.find(asset => /^(.*)arm64.AppImage$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)arm64.AppImage$/.test(asset.browser_download_url)),
       arch: 'ARMv8',
       format: 'AppImage'
     },
     {
       code: 'arm32',
-      data: releases.value.assets.find(asset => /^(.*)armv7l.AppImage$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)armv7l.AppImage$/.test(asset.browser_download_url)),
       arch: 'ARMv7',
       format: 'AppImage'
     }
@@ -368,13 +369,13 @@ const windowsReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: releases.value.assets.find(asset => /^(.*)win_x64.exe$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)win_x64.exe$/.test(asset.browser_download_url)),
       arch: '64-bit',
       format: 'exe'
     },
     {
       code: 'portable',
-      data: releases.value.assets.find(asset => /^(.*)portable.exe$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)portable.exe$/.test(asset.browser_download_url)),
       arch: '64-bit',
       format: 'portable, exe'
     }
@@ -385,13 +386,13 @@ const macReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: releases.value.assets.find(asset => /^(.*)mac_x64.dmg$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)mac_x64.dmg$/.test(asset.browser_download_url)),
       arch: '64-bit',
       format: 'dmg'
     },
     {
       code: 'arm64',
-      data: releases.value.assets.find(asset => /^(.*)arm64.dmg$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)arm64.dmg$/.test(asset.browser_download_url)),
       arch: 'ARMv8',
       format: 'dmg'
     }

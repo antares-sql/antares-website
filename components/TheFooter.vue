@@ -12,7 +12,7 @@
     "
   >
     <div class="text-center">
-      <span class="font-bold">Fabio Di Stasio</span> <span style="font-family: NimbusMono">&copy;</span> {{ new Date().getFullYear() }}
+      <span class="font-bold">Antares</span> by <a href="https://github.com/Fabio286" class="font-bold text-orange-600" target="_blank">Fabio Di Stasio</a>
     </div>
     <div class="text-center">
       <a href="https://github.com/Fabio286/antares/blob/master/LICENSE" target="_blank">
