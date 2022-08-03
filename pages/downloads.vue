@@ -172,7 +172,7 @@
               <tbody>
                 <tr>
                   <td class="py-2">
-                    64-bit
+                    64-bit, ARMv8, ARMv7
                   </td>
                   <td class="py-2">
                     deb
