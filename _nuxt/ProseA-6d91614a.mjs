@@ -1,1 +1,0 @@
-import{d as n,o as a,b as r,w as s,r as f,_}from"./entry-1bf68c30.mjs";const c=n({__name:"ProseA",props:{href:{type:String,default:""},blank:{type:Boolean,default:!1}},setup(e){return(t,l)=>{const o=_;return a(),r(o,{href:e.href},{default:s(()=>[f(t.$slots,"default")]),_:3},8,["href"])}}});export{c as default};
