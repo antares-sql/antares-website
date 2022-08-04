@@ -13,4 +13,4 @@ The only data collected is that recorded by the platforms through which Antares 
 
 ## Website
 
-The website antares-sql.app **does not collect** any kind of data and doesn't use coockies.
+The website antares-sql.app **does not collect** any kind of data and doesn't use cookies.
