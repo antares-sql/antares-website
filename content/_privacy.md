@@ -1,6 +1,9 @@
 ---
 navigation: false
-title: Privacy Policy
+title: Privacy
+fullTitle: Privacy Policy
+head:
+   title: Privacy Policy | Free and Open Source Client
 ---
 
 ## Application

@@ -2,7 +2,7 @@
 <template>
   <div>
     <Head>
-      <Title>Antares SQL - Free and Open Source Client</Title>
+      <Title>Antares SQL | Free and Open Source Client</Title>
     </Head>
     <main class="flex items-center justify-center">
       <BasePageContent>

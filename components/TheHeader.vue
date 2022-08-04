@@ -34,11 +34,6 @@
                 Home
               </NuxtLink>
             </li>
-            <li @click="isMenuOpen = false">
-              <NuxtLink to="/downloads" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">
-                Downloads
-              </NuxtLink>
-            </li>
             <ContentNavigation v-slot="{ navigation }">
               <li v-for="(nav, i) in navigation" :key="i">
                 <a v-if="nav?.children" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">
@@ -50,7 +45,12 @@
               </li>
             </ContentNavigation>
             <li>
-              <a href="https://github.com/Fabio286/antares/discussions" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">Support</a>
+              <a href="https://github.com/Fabio286/antares/discussions" target="_blank" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">Community</a>
+            </li>
+            <li @click="isMenuOpen = false">
+              <NuxtLink to="/downloads" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">
+                Downloads
+              </NuxtLink>
             </li>
           </ul>
         </div>

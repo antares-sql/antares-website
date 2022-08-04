@@ -1,7 +1,9 @@
 ---
 title: Example
+fullTitle: Example Page
 author: Fabio Di Stasio
-date: "2022-07-08 12:00:00"
+head:
+   title: Example Page | Free and Open Source Client
 ---
 
 ## Lorem ipsum
