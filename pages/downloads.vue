@@ -1,7 +1,7 @@
 <template>
   <div>
     <Head>
-      <Title>Downloads - Antares SQL</Title>
+      <Title>Downloads | Free and Open Source Client</Title>
     </Head>
     <main class="flex items-center justify-center">
       <BasePageContent>
