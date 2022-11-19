@@ -77,8 +77,8 @@
             <div class="text-lg dark:text-gray-50">
               <a class="font-bold text-orange-500" href="https://en.wikipedia.org/wiki/Antares" target="_blank" rel="nofollow">Antares</a> is an SQL client that aims to become an useful and complete tool, especially for developers.<br>
               The target is to support as many databases as possible, and all major operating systems, including the ARM versions.<br>
-              At the moment this application is in development state, many features will come in future updates, and actually supports <b>MySQL/MariaDB</b>, <b>PostgreSQL</b> and <b>SQLite</b>.<br>
-              Most of its current features are enough to have a pleasant user experience with MySQL/MariaDB, PostgreSQL and SQLite, so give it a chance and <a class="font-bold text-orange-500" href="https://github.com/Fabio286/antares/discussions" target="_blank">send us your feedback</a>,
+              At the moment this application is in development state, many features will come in future updates, and actually supports <b>MySQL/MariaDB</b>, <b>PostgreSQL</b>, <b>SQLite</b> and <b>Firebird SQL</b>.<br>
+              Most of its current features are enough to have a pleasant user experience with supported databases, so give it a chance and <a class="font-bold text-orange-500" href="https://github.com/Fabio286/antares/discussions" target="_blank">send us your feedback</a>,
               we would really appreciate it.
             </div>
           </div>
