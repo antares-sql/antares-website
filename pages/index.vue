@@ -108,7 +108,7 @@
                 Supported Databases
               </h2>
               <div class="text-2xl dark:text-gray-50">
-                Antares SQL is in a beta phase but it fully supports MySQL/MariaDB, PostgreSQL and SQLite. Support to other databases will come in future releases.
+                Antares SQL is in a beta phase but it fully supports MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL. Support to other databases will come in future releases.
               </div>
             </div>
           </template>
@@ -206,8 +206,15 @@ const steps: Step[] = [
     title: 'SQLite',
     subtitle: 'Supported',
     status: 'complete',
-    nextStatus: 'incomplete',
+    nextStatus: 'complete',
     icon: '<img class="w-16" src="icons/sqlite.svg" title="SQLite">'
+  },
+  {
+    title: 'Firebird SQL',
+    subtitle: 'Supported',
+    status: 'complete',
+    nextStatus: 'incomplete',
+    icon: '<img class="w-16" src="icons/firebird.svg" title="Firebird SQL">'
   },
   {
     title: 'SQL Server',
