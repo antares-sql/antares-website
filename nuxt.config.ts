@@ -2,7 +2,6 @@ import eslintPlugin from 'vite-plugin-eslint'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  ssr: false,
   target: 'static',
   app: {
     head: {
@@ -13,7 +12,6 @@ export default defineNuxtConfig({
   },
   devServerHandlers: [],
   generate: {
-    fallback: '404.html',
     routes: ['/404.html']
   },
   vite: {
