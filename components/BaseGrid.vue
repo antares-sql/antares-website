@@ -10,7 +10,7 @@
   >
     <div
       v-for="(block, i) in blocks"
-      :key="i"
+      :key="block.title"
       data-aos="fade-in"
       data-aos-duration="1500"
       :data-aos-delay="200 * i"
@@ -25,7 +25,10 @@
         lg:col-span-1
       "
     >
-      <component :is="block.icon" size="64" class="m-auto" />
+      <BrandOpenSourceIcon v-if="block.icon === 'BrandOpenSourceIcon'" size="64" class="m-auto" />
+      <CometIcon v-if="block.icon === 'CometIcon'" size="64" class="m-auto" />
+      <SocialIcon v-if="block.icon === 'SocialIcon'" size="64" class="m-auto" />
+      <WallIcon v-if="block.icon === 'WallIcon'" size="64" class="m-auto" />
       <h4 class="text-xl font-bold">
         {{ block.title }}
       </h4>
@@ -35,6 +38,7 @@
 </template>
 <script setup lang="ts">
 import { PropType } from 'vue'
+import { BrandOpenSourceIcon, CometIcon, SocialIcon, WallIcon } from 'vue-tabler-icons'// Temporary fix
 defineProps({
   blocks: {
     type: Object as PropType<{
