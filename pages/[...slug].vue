@@ -53,3 +53,18 @@ switch (routePath.value) {
     break
 }
 </script>
+<style lang="scss">
+.prose {
+  a {
+    text-decoration: none!important;
+  }
+
+  :not(h2) a {
+    color: theme('colors.orange.500');
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+</style>

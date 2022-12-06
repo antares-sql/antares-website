@@ -2,7 +2,10 @@
   <footer
     id="app-footer"
     class="
+      mx-auto
       flex
+      w-full
+      max-w-screen-xl
       justify-between
       bg-gray-50
       py-2
