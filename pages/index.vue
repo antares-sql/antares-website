@@ -1,14 +1,13 @@
 <!-- eslint-disable tailwindcss/no-custom-classname -->
 <template>
-  <div>
+  <main>
     <Head>
       <Title>Antares SQL | Free and Open Source Client</Title>
     </Head>
-    <main class="flex items-center justify-center">
-      <BasePageContent>
-        <div class="pb-10 pt-5 lg:pt-20" data-aos="fade-in" data-aos-duration="1500">
-          <div
-            class="
+    <BasePageContent>
+      <div class="pb-10 pt-5 lg:pt-20" data-aos="fade-in" data-aos-duration="1500">
+        <div
+          class="
               gradient-animate
               rounded-3xl
               bg-gradient-to-tl
@@ -22,19 +21,19 @@
               lg:p-16
               lg:pr-0
             "
-          >
-            <div class="space-y-10 py-10 text-center lg:flex lg:flex-1 lg:flex-col lg:content-center lg:justify-center lg:text-left">
-              <h1 class="text-5xl font-bold dark:text-gray-50">
-                Open source SQL client<br>
-                made to be simple.
-              </h1>
-              <div class="text-2xl dark:text-gray-50">
-                A modern, fast and productivity driven,<br>
-                <strong class="font-bold">forever 100% free</strong> solution with a focus in UX.
-              </div>
-              <NuxtLink
-                to="/downloads"
-                class="
+        >
+          <div class="space-y-10 py-10 text-center lg:flex lg:flex-1 lg:flex-col lg:content-center lg:justify-center lg:text-left">
+            <h1 class="text-5xl font-bold dark:text-gray-50">
+              Open source SQL client<br>
+              made to be simple.
+            </h1>
+            <div class="text-2xl dark:text-gray-50">
+              A modern, fast and productivity driven,<br>
+              <strong class="font-bold">forever 100% free</strong> solution with a focus in UX.
+            </div>
+            <NuxtLink
+              to="/downloads"
+              class="
                   m-auto
                   flex
                   w-fit
@@ -53,40 +52,40 @@
                   focus:ring-blue-400
                   lg:m-0
                 "
-              >
-                <DownloadIcon class="mr-2" /> Download Antares
-              </NuxtLink>
-            </div>
-            <div class="relative hidden min-h-fit flex-1 overflow-hidden rounded-l-xl lg:block">
-              <video ref="player" muted loop>
-                <source src="/videos/main.webm" type="video/webm">
-                <img src="/images/screen1c.png" alt="Antares screenshot" class="relative rounded-l-lg object-cover lg:-right-1">
-              </video>
-            </div>
+            >
+              <DownloadIcon class="mr-2" /> Download Antares
+            </NuxtLink>
+          </div>
+          <div class="relative hidden min-h-fit flex-1 overflow-hidden rounded-l-xl lg:block">
+            <video ref="player" muted loop>
+              <source src="/videos/main.webm" type="video/webm">
+              <img src="/images/screen1c.png" alt="Antares screenshot" class="relative rounded-l-lg object-cover lg:-right-1">
+            </video>
           </div>
         </div>
+      </div>
 
-        <div class="space-y-20 pb-16 lg:pb-40" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="500">
-          <div class="space-y-5 pt-24 text-center">
-            <h2 class="text-5xl font-bold dark:text-gray-50">
-              About Antares Project
-            </h2>
-            <div class="text-2xl dark:text-gray-50">
-              A new star is born, and is growing fast.
-            </div>
-            <div class="text-lg dark:text-gray-50">
-              <a class="font-bold text-orange-500" href="https://en.wikipedia.org/wiki/Antares" target="_blank" rel="nofollow">Antares</a> is an SQL client that aims to become an useful and complete tool, especially for developers.<br>
-              The target is to support as many databases as possible, and all major operating systems, including the ARM versions.<br>
-              At the moment this application is in development state, many features will come in future updates, and actually supports <b>MySQL/MariaDB</b>, <b>PostgreSQL</b>, <b>SQLite</b> and <b>Firebird SQL</b>.<br>
-              Most of its current features are enough to have a pleasant user experience with supported databases, so give it a chance and <a class="font-bold text-orange-500" href="https://github.com/Fabio286/antares/discussions" target="_blank">send us your feedback</a>,
-              we would really appreciate it.
-            </div>
+      <div class="space-y-20 pb-16 lg:pb-40" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="500">
+        <div class="space-y-5 pt-24 text-center">
+          <h2 class="text-5xl font-bold dark:text-gray-50">
+            About Antares Project
+          </h2>
+          <div class="text-2xl dark:text-gray-50">
+            A new star is born, and is growing fast.
+          </div>
+          <div class="text-lg dark:text-gray-50">
+            <a class="font-bold text-orange-500" href="https://en.wikipedia.org/wiki/Antares" target="_blank" rel="nofollow">Antares</a> is an SQL client that aims to become an useful and complete tool, especially for developers.<br>
+            The target is to support as many databases as possible, and all major operating systems, including the ARM versions.<br>
+            At the moment this application is in development state, many features will come in future updates, and actually supports <b>MySQL/MariaDB</b>, <b>PostgreSQL</b>, <b>SQLite</b> and <b>Firebird SQL</b>.<br>
+            Most of its current features are enough to have a pleasant user experience with supported databases, so give it a chance and <a class="font-bold text-orange-500" href="https://github.com/Fabio286/antares/discussions" target="_blank">send us your feedback</a>,
+            we would really appreciate it.
           </div>
         </div>
-        <div
-          v-for="(card, i) in cards"
-          :key="i"
-          class="
+      </div>
+      <div
+        v-for="(card, i) in cards"
+        :key="i"
+        class="
             mb-16
             max-w-none
             rounded-3xl
@@ -94,31 +93,30 @@
             dark:text-gray-50
             lg:mb-32
           "
-          data-aos="fade-in"
-          data-aos-duration="1500"
-          data-aos-delay="500"
-        >
-          <BaseCard :card="card" />
-        </div>
-        <BaseGrid :blocks="blocks" />
-        <BaseStepper :steps="steps">
-          <template #header>
-            <div class="space-y-5 pb-24 text-center">
-              <h2 class="text-4xl font-bold dark:text-gray-50">
-                Supported Databases
-              </h2>
-              <div class="text-2xl dark:text-gray-50">
-                Antares SQL is in a beta phase but it fully supports MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL. Support to other databases will come in future releases.
-              </div>
+        data-aos="fade-in"
+        data-aos-duration="1500"
+        data-aos-delay="500"
+      >
+        <BaseCard :card="card" />
+      </div>
+      <BaseGrid :blocks="blocks" />
+      <BaseStepper :steps="steps">
+        <template #header>
+          <div class="space-y-5 pb-24 text-center">
+            <h2 class="text-4xl font-bold dark:text-gray-50">
+              Supported Databases
+            </h2>
+            <div class="text-2xl dark:text-gray-50">
+              Antares SQL is in a beta phase but it fully supports MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL. Support to other databases will come in future releases.
             </div>
-          </template>
-        </BaseStepper>
-      </BasePageContent>
-    </main>
-  </div>
+          </div>
+        </template>
+      </BaseStepper>
+    </BasePageContent>
+  </main>
 </template>
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { Ref, ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 import BaseCard from '~/components/BaseCard.vue'
 import BaseGrid from '~/components/BaseGrid.vue'
@@ -236,7 +234,8 @@ const steps: Step[] = [
   }
 ]
 
-const player = ref(null)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const player: Ref<any> = ref(null)
 const isPlayerVisible = useElementVisibility(player)
 
 watch(isPlayerVisible, (val) => {

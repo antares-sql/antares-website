@@ -47,7 +47,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { PropType, ref, watch } from 'vue'
+import { PropType, Ref, ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 
 defineProps({
@@ -64,7 +64,8 @@ defineProps({
   }
 })
 
-const player = ref(null)
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const player: Ref<any> = ref(null)
 const isPlayerVisible = useElementVisibility(player)
 
 watch(isPlayerVisible, (val) => {
