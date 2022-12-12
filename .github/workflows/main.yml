@@ -28,7 +28,7 @@ jobs:
         run: npm run generate
 
       - name: Check directory
-        run: ls -l ./dist
+        run: ls -l ./dist/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
