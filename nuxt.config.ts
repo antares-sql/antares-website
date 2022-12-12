@@ -19,9 +19,13 @@ export default defineNuxtConfig({
       eslintPlugin()
     ]
   },
+  sitemap: {
+    hostname: 'https://antares-sql.app'
+  },
   modules: [
     '@nuxtjs/tailwindcss',
-    '@nuxt/content'
+    '@nuxt/content',
+    '~/modules/sitemap'
   ],
   buildModules: [
     '@vueuse/nuxt',

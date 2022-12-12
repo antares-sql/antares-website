@@ -60,7 +60,7 @@
 </template>
 <script setup>
 import GithubButton from 'vue-github-button'
-import { BrandTwitterIcon } from 'vue-tabler-icons'
+import { BrandTwitterIcon, BrandGithubIcon } from 'vue-tabler-icons'
 
 const isMenuOpen = ref(false)
 </script>
