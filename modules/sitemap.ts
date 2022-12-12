@@ -60,7 +60,7 @@ export default defineNuxtModule({
         const sitemap = await generateSitemap(paths)
         createSitemapFile(sitemap, filePath)
         // eslint-disable-next-line no-console
-        console.log('sitemap.xml created to', filePath)
+        console.log('sitemap.xml created')
       })
     })
   }
