@@ -28,7 +28,7 @@ export default defineNuxtModule({
     function createSitemapFile (sitemap: string, filepath: string) {
       const dirPath = dirname(filepath)
       mkdirSync(dirPath, { recursive: true })
-      writeFileSync(filepath, sitemap)
+      writeFileSync('dist/sitemap.xml', sitemap)
     }
 
     const resolver = createResolver(import.meta.url)
