@@ -18,7 +18,7 @@
       <span class="font-bold">Antares</span> by <a href="https://fabiodistasio.it" rel="author" class="font-bold text-orange-600" target="_blank">Fabio Di Stasio</a>
     </div>
     <div class="text-center">
-      <a href="https://github.com/Fabio286/antares/blob/master/LICENSE" target="_blank">
+      <a href="https://github.com/antares-sql/antares/blob/master/LICENSE" target="_blank">
         License
       </a> •
       <NuxtLink to="/_privacy">

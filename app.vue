@@ -24,9 +24,9 @@ const structuredData = JSON.stringify({
   },
   sameAs: [
     'https://antares-sql.app',
-    'https://github.com/Fabio286/antares'
+    'https://github.com/antares-sql/antares'
   ],
-  license: 'https://github.com/Fabio286/antares/blob/master/LICENSE',
+  license: 'https://github.com/antares-sql/antares/blob/master/LICENSE',
   author: {
     '@type': 'Person',
     givenName: 'Fabio',

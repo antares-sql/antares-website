@@ -9,11 +9,11 @@
         </a>
         <div class="hidden items-center lg:order-2 lg:flex">
           <div class="mx-2 leading-none">
-            <GithubButton href="https://github.com/fabio286/antares" data-show-count="true" data-size="large">
+            <GithubButton href="https://github.com/antares-sql/antares" data-show-count="true" data-size="large">
               Star
             </GithubButton>
           </div>
-          <a title="GitHub Repository" target="_blank" class="mx-2" href="https://github.com/Fabio286/antares">
+          <a title="GitHub Repository" target="_blank" class="mx-2" href="https://github.com/antares-sql/antares">
             <BrandGithubIcon class="text-gray-50" />
           </a>
           <a title="Follow on Twitter" target="_blank" class="mx-2" href="https://twitter.com/AntaresSql">
@@ -45,7 +45,7 @@
               </li>
             </ContentNavigation>
             <li>
-              <a href="https://github.com/Fabio286/antares/discussions" target="_blank" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">Community</a>
+              <a href="https://github.com/antares-sql/antares/discussions" target="_blank" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">Community</a>
             </li>
             <li @click="isMenuOpen = false">
               <NuxtLink to="/downloads" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">

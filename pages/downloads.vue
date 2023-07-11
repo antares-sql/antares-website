@@ -243,7 +243,7 @@
                 <img alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg">
               </a>
               <a href="https://aur.archlinux.org/packages/antares-sql/" target="_blank">
-                <img alt="Get it from AUR" src="https://raw.githubusercontent.com/Fabio286/antares/3e00c4bae6e036300c752c1a40c5a038fea9c169/docs/aur-badge.svg">
+                <img alt="Get it from AUR" src="https://raw.githubusercontent.com/antares-sql/antares/3e00c4bae6e036300c752c1a40c5a038fea9c169/docs/aur-badge.svg">
               </a>
             </div>
           </div>
@@ -338,7 +338,8 @@
 import { Ref, ref } from 'vue'
 import getOS from '~/libs/getOS'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const { data: releases } = await useFetch<any>('https://api.github.com/repos/fabio286/antares/releases/latest')
+type ReleaseInfo = {name:string, browser_download_url : string};
+const { data: releases } = await useFetch<{assets: ReleaseInfo[]}>('https://api.github.com/repos/antares-sql/antares/releases/latest', { server: false })
 
 const os: Ref<string> = ref(getOS())
 
@@ -346,19 +347,19 @@ const linuxReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: releases.value?.assets.find(asset => /^(.*)x86_64.AppImage$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)x86_64.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
       format: 'AppImage'
     },
     {
       code: 'arm64',
-      data: releases.value?.assets.find(asset => /^(.*)arm64.AppImage$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)arm64.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: 'ARMv8',
       format: 'AppImage'
     },
     {
       code: 'arm32',
-      data: releases.value?.assets.find(asset => /^(.*)armv7l.AppImage$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)armv7l.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: 'ARMv7',
       format: 'AppImage'
     }
@@ -369,13 +370,13 @@ const windowsReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: releases.value?.assets.find(asset => /^(.*)win_x64.exe$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)win_x64.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
       format: 'exe'
     },
     {
       code: 'portable',
-      data: releases.value?.assets.find(asset => /^(.*)portable.exe$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)portable.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
       format: 'portable, exe'
     }
@@ -386,13 +387,13 @@ const macReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: releases.value?.assets.find(asset => /^(.*)mac_x64.dmg$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)mac.dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
       format: 'dmg'
     },
     {
       code: 'arm64',
-      data: releases.value?.assets.find(asset => /^(.*)arm64.dmg$/.test(asset.browser_download_url)),
+      data: releases.value?.assets.find(asset => /^(.*)arm64.dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: 'ARMv8',
       format: 'dmg'
     }
