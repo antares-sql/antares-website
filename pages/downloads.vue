@@ -242,7 +242,7 @@
               <a href="https://snapcraft.io/antares" target="_blank">
                 <img alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg">
               </a>
-              <a href="https://aur.archlinux.org/packages/antares-sql/" target="_blank">
+              <a href="https://aur.archlinux.org/packages/antares-sql-bin" target="_blank">
                 <img alt="Get it from AUR" src="https://raw.githubusercontent.com/antares-sql/antares/3e00c4bae6e036300c752c1a40c5a038fea9c169/docs/aur-badge.svg">
               </a>
             </div>
