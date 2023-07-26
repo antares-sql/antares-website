@@ -370,7 +370,7 @@ const windowsReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: releases.value?.assets.find(asset => /^(.*)win_x64.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: releases.value?.assets.find(asset => /^(.*)win.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
       format: 'exe'
     },
