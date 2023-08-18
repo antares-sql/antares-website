@@ -13,10 +13,13 @@
               Star
             </GithubButton>
           </div>
-          <a title="GitHub Repository" target="_blank" class="mx-2" href="https://github.com/antares-sql/antares">
+          <a rel="nofollow me" title="GitHub Repository" target="_blank" class="mx-2" href="https://github.com/antares-sql/antares">
             <BrandGithubIcon class="text-gray-50" />
           </a>
-          <a title="Follow on Twitter" target="_blank" class="mx-2" href="https://twitter.com/AntaresSql">
+          <a rel="nofollow me" title="Follow on Mastodon" target="_blank" class="mx-2" href="https://fosstodon.org/@AntaresSQL">
+            <BrandMastodonIcon class="text-gray-50" />
+          </a>
+          <a rel="nofollow me" title="Follow on Twitter" target="_blank" class="mx-2" href="https://twitter.com/AntaresSql">
             <BrandTwitterIcon class="text-gray-50" />
           </a>
         </div>
@@ -60,7 +63,7 @@
 </template>
 <script setup>
 import GithubButton from 'vue-github-button'
-import { BrandTwitterIcon, BrandGithubIcon } from 'vue-tabler-icons'
+import { BrandTwitterIcon, BrandMastodonIcon, BrandGithubIcon } from 'vue-tabler-icons'
 
 const isMenuOpen = ref(false)
 </script>
