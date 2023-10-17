@@ -1,1 +1,1 @@
-export default {data:{"content-navigation-8C37fagqQL":[{title:"About",_path:"\u002Fabout"}]},prerenderedAt:1692368248583}
+export default {data:{"content-navigation-8C37fagqQL":[{title:"About",_path:"\u002Fabout"}]},prerenderedAt:1697559785142}
