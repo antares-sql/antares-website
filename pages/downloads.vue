@@ -74,6 +74,9 @@
                   <th>
                     Format
                   </th>
+                  <th class="py-2">
+                    Version
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -82,13 +85,16 @@
                   <td class="py-2">
                     {{ release.arch }}
                   </td>
-                  <td class="py-2">
+                  <td class="py-2 pr-1">
                     {{ release.format }}
+                  </td>
+                  <td class="py-2">
+                    {{ release.version }}
                   </td>
                   <td class="py-2">
                     <NuxtLink
                       :to="release.data.browser_download_url"
-                      :title="release.data.name"
+                      :title="`Download ${release.data.name}`"
                       class="
                         ml-auto
                         flex
@@ -98,8 +104,7 @@
                         whitespace-nowrap
                         rounded-2xl
                         bg-orange-600
-                        py-1
-                        px-2
+                        p-1
                         text-sm
                         font-semibold
                         hover:opacity-80
@@ -107,7 +112,7 @@
                         focus:ring-blue-400
                      "
                     >
-                      Download <DownloadIcon class="ml-1" />
+                      <DownloadIcon />
                     </NuxtLink>
                   </td>
                 </tr>
@@ -166,21 +171,28 @@
                   <th>
                     Format
                   </th>
+                  <th>
+                    Version
+                  </th>
                   <th />
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td class="py-2">
-                    64-bit, ARMv8, ARMv7
+                    All
+                  </td>
+                  <td class="py-2 pr-1">
+                    deb
                   </td>
                   <td class="py-2">
-                    deb
+                    stable
                   </td>
                   <td class="py-2">
                     <NuxtLink
                       to="https://github.com/antares-sql/antares-ppa"
                       target="_blank"
+                      title="Instructions"
                       class="
                         ml-auto
                         flex
@@ -190,8 +202,7 @@
                         whitespace-nowrap
                         rounded-2xl
                         bg-orange-600
-                        py-1
-                        px-2
+                        p-1
                         text-sm
                         font-semibold
                         hover:opacity-80
@@ -199,7 +210,7 @@
                         focus:ring-blue-400
                      "
                     >
-                      Instructions <ExternalLinkIcon class="ml-1" />
+                      <ExternalLinkIcon />
                     </NuxtLink>
                   </td>
                 </tr>
@@ -207,13 +218,16 @@
                   <td class="py-2">
                     {{ release.arch }}
                   </td>
-                  <td class="py-2">
+                  <td class="py-2 pr-1">
                     {{ release.format }}
+                  </td>
+                  <td class="py-2">
+                    {{ release.version }}
                   </td>
                   <td class="py-2">
                     <NuxtLink
                       :to="release.data.browser_download_url"
-                      :title="release.data.name"
+                      :title="`Download ${release.data.name}`"
                       class="
                         ml-auto
                         flex
@@ -223,8 +237,7 @@
                         whitespace-nowrap
                         rounded-2xl
                         bg-orange-600
-                        py-1
-                        px-2
+                        p-1
                         text-sm
                         font-semibold
                         hover:opacity-80
@@ -232,7 +245,7 @@
                         focus:ring-blue-400
                      "
                     >
-                      Download <DownloadIcon class="ml-1" />
+                      <DownloadIcon />
                     </NuxtLink>
                   </td>
                 </tr>
@@ -288,6 +301,9 @@
                   <th>
                     Format
                   </th>
+                  <th>
+                    Version
+                  </th>
                   <th />
                 </tr>
               </thead>
@@ -296,13 +312,16 @@
                   <td class="py-2">
                     {{ release.arch }}
                   </td>
-                  <td class="py-2">
+                  <td class="py-2 pr-1">
                     {{ release.format }}
+                  </td>
+                  <td class="py-2">
+                    {{ release.version }}
                   </td>
                   <td class="py-2">
                     <NuxtLink
                       :to="release.data.browser_download_url"
-                      :title="release.data.name"
+                      :title="`Download ${release.data.name}`"
                       class="
                         ml-auto
                         flex
@@ -312,8 +331,7 @@
                         whitespace-nowrap
                         rounded-2xl
                         bg-orange-600
-                        py-1
-                        px-2
+                        p-1
                         text-sm
                         font-semibold
                         hover:opacity-80
@@ -321,7 +339,7 @@
                         focus:ring-blue-400
                      "
                     >
-                      Download <DownloadIcon class="ml-1" />
+                      <DownloadIcon />
                     </NuxtLink>
                   </td>
                 </tr>
@@ -336,32 +354,50 @@
 
 <script setup lang="ts">
 import { Ref, ref } from 'vue'
+import { DownloadIcon, ExternalLinkIcon } from 'vue-tabler-icons'
 import getOS from '~/libs/getOS'
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type ReleaseInfo = {name:string, browser_download_url : string};
-const { data: releases } = await useFetch<{assets: ReleaseInfo[]}>('https://api.github.com/repos/antares-sql/antares/releases/latest', { server: false })
+type ReleaseInfo = { name:string, browser_download_url : string };
+const { data: releases } = await useFetch<{name: string, assets: ReleaseInfo[], prerelease: boolean}[]>('https://api.github.com/repos/antares-sql/antares/releases', { server: false })
 
 const os: Ref<string> = ref(getOS())
+const latestStable = computed(() => {
+  return releases.value?.find(r => !r.prerelease)
+})
+const latestBeta = computed(() => {
+  return releases.value?.find(r => r.prerelease)
+})
+// const stableVersion = computed(() => latestStable.value?.name || '')
+// const betaVersion = computed(() => latestBeta.value?.name || '')
 
 const linuxReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: releases.value?.assets.find(asset => /^(.*)x86_64.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestStable.value?.assets.find(asset => /^(.*)x86_64.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
-      format: 'AppImage'
+      format: 'AppImage',
+      version: 'stable'
     },
     {
       code: 'arm64',
-      data: releases.value?.assets.find(asset => /^(.*)arm64.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestStable.value?.assets.find(asset => /^(.*)arm64.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: 'ARMv8',
-      format: 'AppImage'
+      format: 'AppImage',
+      version: 'stable'
     },
     {
       code: 'arm32',
-      data: releases.value?.assets.find(asset => /^(.*)armv7l.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestStable.value?.assets.find(asset => /^(.*)armv7l.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: 'ARMv7',
-      format: 'AppImage'
+      format: 'AppImage',
+      version: 'stable'
+    },
+    {
+      code: 'amd64',
+      data: latestBeta.value?.assets.find(asset => /^(.*)x86_64.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
+      arch: '64-bit',
+      format: 'AppImage',
+      version: 'beta'
     }
   ].filter(rel => rel.data)
 })
@@ -370,15 +406,31 @@ const windowsReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: releases.value?.assets.find(asset => /^(.*)win.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestStable.value?.assets.find(asset => /^(.*)win.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
-      format: 'exe'
+      format: 'exe',
+      version: 'stable'
     },
     {
       code: 'portable',
-      data: releases.value?.assets.find(asset => /^(.*)portable.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestStable.value?.assets.find(asset => /^(.*)portable.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
-      format: 'portable, exe'
+      format: 'portable.exe',
+      version: 'stable'
+    },
+    {
+      code: 'amd64',
+      data: latestBeta.value?.assets.find(asset => /^(.*)win.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
+      arch: '64-bit',
+      format: 'exe',
+      version: 'beta'
+    },
+    {
+      code: 'portable',
+      data: latestBeta.value?.assets.find(asset => /^(.*)portable.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
+      arch: '64-bit',
+      format: 'portable.exe',
+      version: 'beta'
     }
   ].filter(rel => rel.data)
 })
@@ -387,15 +439,24 @@ const macReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: releases.value?.assets.find(asset => /^(.*)mac.dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestStable.value?.assets.find(asset => /^(.*)mac.dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
-      format: 'dmg'
+      format: 'dmg',
+      version: 'stable'
     },
     {
       code: 'arm64',
-      data: releases.value?.assets.find(asset => /^(.*)arm64.dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestStable.value?.assets.find(asset => /^(.*)arm64.dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: 'ARMv8',
-      format: 'dmg'
+      format: 'dmg',
+      version: 'stable'
+    },
+    {
+      code: 'amd64',
+      data: latestBeta.value?.assets.find(asset => /^(.*)mac.dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
+      arch: '64-bit',
+      format: 'dmg',
+      version: 'beta'
     }
   ].filter(rel => rel.data)
 })
