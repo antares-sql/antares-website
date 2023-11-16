@@ -409,7 +409,7 @@ const windowsReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: latestStable.value?.assets.find(asset => /^(.*)win.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestStable.value?.assets.find(asset => /^(.*)(win|win_x64).exe$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
       format: 'exe',
       version: 'stable'
@@ -423,7 +423,7 @@ const windowsReleases = computed(() => {
     },
     {
       code: 'amd64',
-      data: latestBeta.value?.assets.find(asset => /^(.*)win.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestBeta.value?.assets.find(asset => /^(.*)(win|win_x64).exe$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
       format: 'exe',
       version: 'beta'
