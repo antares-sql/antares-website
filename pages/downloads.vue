@@ -442,7 +442,7 @@ const macReleases = computed(() => {
   return [
     {
       code: 'amd64',
-      data: latestStable.value?.assets.find(asset => /^(.*)mac.dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestStable.value?.assets.find(asset => /^(.*)(mac|mac_x64).dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
       format: 'dmg',
       version: 'stable'
@@ -456,7 +456,7 @@ const macReleases = computed(() => {
     },
     {
       code: 'amd64',
-      data: latestBeta.value?.assets.find(asset => /^(.*)mac.dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
+      data: latestBeta.value?.assets.find(asset => /^(.*)(mac|mac_x64).dmg$/.test(asset.browser_download_url)) as ReleaseInfo,
       arch: '64-bit',
       format: 'dmg',
       version: 'beta'
