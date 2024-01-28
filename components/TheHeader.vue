@@ -50,6 +50,9 @@
             <li>
               <a href="https://github.com/antares-sql/antares/discussions" target="_blank" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">Community</a>
             </li>
+            <li>
+              <a href="https://github.com/orgs/antares-sql/discussions?discussions_q=category%3A%22Development+updates%22+category%3AReleases+sort%3Adate_created+" target="_blank" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">News</a>
+            </li>
             <li @click="isMenuOpen = false">
               <NuxtLink to="/downloads" class="lg:hover:text-primary-700 block border-b border-gray-100 py-2 pr-4 pl-3 dark:border-gray-700 dark:hover:text-gray-50 lg:border-0 lg:p-0 lg:hover:bg-transparent lg:dark:hover:bg-transparent lg:dark:hover:text-gray-50">
                 Downloads
