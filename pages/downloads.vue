@@ -256,7 +256,7 @@
                 <img class="inline-block h-14" alt="Download on Flathub" src="https://dl.flathub.org/assets/badges/flathub-badge-en.svg">
               </a>
               <a href="https://snapcraft.io/antares" target="_blank" rel="nofollow">
-                <img class="inline-block h-14" alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg">
+                <img class="inline-block h-14" alt="Get it from the Snap Store" src="~/assets/images/snap-store-black.svg">
               </a>
               <a href="https://aur.archlinux.org/packages/antares-sql-bin" target="_blank" rel="nofollow">
                 <img class="inline-block h-14" alt="Get it from AUR" src="https://raw.githubusercontent.com/antares-sql/antares/master/docs/aur-badge.svg">
