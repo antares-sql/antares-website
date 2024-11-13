@@ -19,9 +19,6 @@
           <a rel="nofollow me" title="Follow on Mastodon" target="_blank" class="mx-2" href="https://fosstodon.org/@AntaresSQL">
             <BrandMastodonIcon class="text-gray-50" />
           </a>
-          <a rel="nofollow me" title="Follow on Twitter" target="_blank" class="mx-2" href="https://twitter.com/AntaresSql">
-            <BrandTwitterIcon class="text-gray-50" />
-          </a>
         </div>
         <div class="lg:hidden">
           <button type="button" class="ml-1 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 lg:hidden" aria-controls="mobile-menu-2" @click="isMenuOpen = !isMenuOpen">
@@ -66,7 +63,7 @@
 </template>
 <script setup>
 import GithubButton from 'vue-github-button'
-import { BrandTwitterIcon, BrandMastodonIcon, BrandGithubIcon } from 'vue-tabler-icons'
+import { BrandMastodonIcon, BrandGithubIcon } from 'vue-tabler-icons'
 
 const isMenuOpen = ref(false)
 </script>
