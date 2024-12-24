@@ -348,6 +348,11 @@
                 </tr>
               </tbody>
             </table>
+            <div class="flex flex-wrap justify-center gap-2">
+              <a class="m-auto flex w-fit items-center justify-center whitespace-nowrap rounded-xl bg-gray-50 py-1 px-3 text-lg font-semibold text-gray-900 hover:opacity-80 focus:ring-2 focus:ring-blue-400 lg:m-0" href="https://support.apple.com/guide/mac-help/mh40616/mac" rel="nofollow" target="_blank">
+                How to Install on MacOS
+              </a>
+            </div>
           </div>
         </div>
       </BasePageContent>
