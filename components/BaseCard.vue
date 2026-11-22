@@ -29,7 +29,7 @@
       <div
         v-if="card.isVideo"
         class="-mb-1 w-full overflow-hidden rounded-b-3xl lg:rounded-b-none"
-        :class="[card.mediaPosition === 'right' ? 'lg:rounded-tl-2xl lg:rounded-br-2xl': 'lg:rounded-tr-2xl lg:rounded-bl-2xl']"
+        :class="[card.mediaPosition === 'right' ? 'lg:rounded-br-2xl lg:rounded-tl-2xl': 'lg:rounded-bl-2xl lg:rounded-tr-2xl']"
       >
         <video ref="player" muted loop>
           <source :src="card.mediaPath" type="video/webm">
@@ -41,13 +41,14 @@
         :src="card.mediaPath"
         alt="Context menu"
         class="w-full rounded-b-3xl lg:rounded-b-none"
-        :class="[card.mediaPosition === 'right' ? 'lg:rounded-tl-2xl lg:rounded-br-2xl': 'lg:rounded-tr-2xl lg:rounded-bl-2xl']"
+        :class="[card.mediaPosition === 'right' ? 'lg:rounded-br-2xl lg:rounded-tl-2xl': 'lg:rounded-bl-2xl lg:rounded-tr-2xl']"
       >
     </div>
   </div>
 </template>
 <script setup lang="ts">
-import { PropType, Ref, ref, watch } from 'vue'
+import type { PropType, Ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 
 defineProps({

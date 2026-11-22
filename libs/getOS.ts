@@ -1,5 +1,5 @@
 function getOS (): string {
-  if (!process.client) {
+  if (!import.meta.client) {
     return
   }
 

@@ -64,7 +64,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, PropType, ref, watch } from 'vue'
+import type { PropType } from 'vue'
+import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { ArrowBackUpIcon } from 'vue-tabler-icons'
 import ColorPicker from './ColorPicker.vue'
 import { isThemeColor, parseColor } from '~/libs/themeEditor/colors'

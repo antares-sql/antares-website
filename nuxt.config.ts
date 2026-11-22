@@ -1,8 +1,12 @@
-import eslintPlugin from 'vite-plugin-eslint'
-
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  target: 'static',
+  modules: [
+    '@nuxt/eslint',
+    '@nuxtjs/tailwindcss',
+    '@nuxt/content',
+    '@vueuse/nuxt',
+    '~/modules/sitemap'
+  ],
   app: {
     head: {
       link: [
@@ -10,28 +14,23 @@ export default defineNuxtConfig({
       ]
     }
   },
-  devServerHandlers: [],
-  generate: {
-    routes: ['/404.html']
+  compatibilityDate: '2026-11-22',
+  postcss: {
+    plugins: {
+      // Not used (nesting is handled by Sass) and not loadable as ESM from Tailwind v3
+      'tailwindcss/nesting': false
+    }
   },
-  vite: {
-    plugins: [
-      eslintPlugin()
-    ]
+  eslint: {
+    config: {
+      stylistic: false
+    }
+  },
+  tailwindcss: {
+    // Tailwind directives live in assets/scss/main.scss
+    cssPath: false
   },
   sitemap: {
     hostname: 'https://antares-sql.app'
-  },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@nuxt/content',
-    '~/modules/sitemap'
-  ],
-  buildModules: [
-    '@vueuse/nuxt',
-    '@nuxtjs/tailwindcss'
-  ],
-  content: {
-    sources: ['content']
   }
 })

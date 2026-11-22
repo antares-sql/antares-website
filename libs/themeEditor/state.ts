@@ -63,6 +63,7 @@ const SYNTAX_PATTERNS: Record<string, RegExp> = {
   textDecoration: /^(none|underline|line-through)$/
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isRecord = (v: unknown): v is Record<string, any> => typeof v === 'object' && v !== null && !Array.isArray(v)
 
 export const emptyTheme = (appearance: Appearance): Theme => ({
@@ -182,13 +183,13 @@ const load = async () => {
     const saved = localStorage.getItem(STORAGE_KEY)
     const restored = saved ? sanitizeTheme(JSON.parse(saved), catalog.value as Catalog).theme : null
     if (restored) { theme.value = restored }
-  } catch {}
+  } catch { /* storage unavailable or corrupted: start from the default theme */ }
 
   let timer: ReturnType<typeof setTimeout>
   watch(theme, () => {
     clearTimeout(timer)
     timer = setTimeout(() => {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(theme.value)) } catch {}
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(theme.value)) } catch { /* storage unavailable: skip saving */ }
     }, 300)
   }, { deep: true })
 }

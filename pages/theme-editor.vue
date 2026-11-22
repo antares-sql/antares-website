@@ -8,7 +8,7 @@
 
     <!-- Top bar -->
     <header class="flex flex-none flex-wrap items-center gap-3 border-b border-slate-700 px-4 py-2">
-      <img src="~/assets/images/logo.png" alt="" class="h-7 w-7">
+      <img src="~/assets/images/logo.png" alt="" class="size-7">
       <div class="mr-auto leading-tight">
         <div class="font-bold">
           Theme Editor
@@ -61,7 +61,7 @@
           <button type="button" @click="copy">
             <CopyIcon size="15" /> Copy JSON
           </button>
-          <p class="px-3 pt-1 pb-2 text-xs text-slate-400">
+          <p class="px-3 pb-2 pt-1 text-xs text-slate-400">
             Import it in Antares from <b>Settings → Themes → Import</b>, or share it in the
             <a class="text-pink-300 underline" :href="galleryRepo" target="_blank" rel="noopener">theme gallery</a>.
           </p>
@@ -101,7 +101,7 @@
       </section>
 
       <!-- Controls -->
-      <aside class="flex min-h-0 w-full flex-none flex-col border-t border-slate-700 bg-slate-900/80 lg:w-[400px] lg:border-t-0 lg:border-l">
+      <aside class="flex min-h-0 w-full flex-none flex-col border-t border-slate-700 bg-slate-900/80 lg:w-[400px] lg:border-l lg:border-t-0">
         <nav class="flex flex-none gap-1 overflow-x-auto px-3 pt-3">
           <button
             v-for="tab in tabs"
@@ -341,7 +341,8 @@ import {
 import MockApp from '~/components/theme-editor/MockApp.vue'
 import TokenRow from '~/components/theme-editor/TokenRow.vue'
 import { colorLabels, editorLabels, groupLabels, shapeLabels, slotLabel, syntaxLabels } from '~/libs/themeEditor/labels'
-import { Appearance, Catalog, emptyTheme, GalleryEntry, sanitizeTheme, Theme, useThemeEditor } from '~/libs/themeEditor/state'
+import type { Appearance, Catalog, GalleryEntry, Theme } from '~/libs/themeEditor/state'
+import { emptyTheme, sanitizeTheme, useThemeEditor } from '~/libs/themeEditor/state'
 
 definePageMeta({ bare: true })
 

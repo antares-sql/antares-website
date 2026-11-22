@@ -1,66 +1,48 @@
-import { mkdirSync, writeFileSync } from 'fs'
-import { Readable } from 'stream'
-import { dirname } from 'path'
+import { mkdirSync, writeFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { Readable } from 'node:stream'
 import { SitemapStream, streamToPromise } from 'sitemap'
-import { defineNuxtModule, createResolver } from '@nuxt/kit'
+import { defineNuxtModule } from '@nuxt/kit'
 
 export default defineNuxtModule({
   meta: {
     name: 'sitemap',
-    version: '0.0.1',
+    version: '0.0.2',
     configKey: 'sitemap',
-    compatibility: { nuxt: '^3.0.0-rc.11' }
+    compatibility: { nuxt: '>=4.0.0' }
   },
   defaults: {
     hostname: 'http://localhost:3000'
   },
   setup (options, nuxt) {
-    function generateSitemap (routes:{path: string}[]) {
-      const sitemapRoutes = routes.map(route => route.path)
+    // Pages that must not be listed even though they are prerendered
+    const EXCLUDED_PATHS = ['/200.html', '/404.html', '/theme-editor', '/store/apps/9nhtb9sq51r1']
 
-      // https://github.com/ekalinin/sitemap.js#generate-a-one-time-sitemap-from-a-list-of-urls
-      const stream = new SitemapStream({ hostname: options.hostname })
-      return streamToPromise(Readable.from(sitemapRoutes).pipe(stream)).then(
-        data => data.toString()
-      )
-    }
-
-    function createSitemapFile (sitemap: string, filepath: string) {
-      const dirPath = dirname(filepath)
-      mkdirSync(dirPath, { recursive: true })
-      writeFileSync('dist/sitemap.xml', sitemap)
-    }
-
-    const resolver = createResolver(import.meta.url)
-    const filePath = resolver.resolve(
-      nuxt.options.srcDir,
-      'node_modules/.cache/.sitemap/sitemap.xml'
-    )
-
-    nuxt.options.nitro.publicAssets = nuxt.options.nitro.publicAssets || []
-    nuxt.options.nitro.publicAssets.push({
-      baseURL: '/',
-      dir: dirname(filePath)
-    })
-
-    nuxt.hook('nitro:build:before', (nitro) => {
-      const paths: {path: string}[] = []
-      const EXCLUDED_KEYWORDS = ['/api/_content', '/store/apps/9nhtb9sq51r1', '_payload.js', '200.html', '/theme-editor']
+    nuxt.hook('nitro:init', (nitro) => {
+      const paths: string[] = []
 
       nitro.hooks.hook('prerender:route', (route) => {
-        const shouldBeAddedToSitemap = EXCLUDED_KEYWORDS.every(
-          excludedKeyword => !route.route.includes(excludedKeyword)
-        )
+        const isPage = route.contentType?.includes('text/html')
+        const isExcluded = EXCLUDED_PATHS.some(path => route.route.startsWith(path))
 
-        if (shouldBeAddedToSitemap) {
-          paths.push({ path: route.route })
+        if (isPage && !route.error && !isExcluded) {
+          paths.push(route.route)
         }
       })
-      nitro.hooks.hook('close', async () => {
-        const sitemap = await generateSitemap(paths)
-        createSitemapFile(sitemap, filePath)
-        // eslint-disable-next-line no-console
-        console.log('sitemap.xml created')
+
+      nitro.hooks.hook('prerender:done', async () => {
+        if (!paths.length) {
+          return
+        }
+
+        // https://github.com/ekalinin/sitemap.js#generate-a-one-time-sitemap-from-a-list-of-urls
+        const stream = new SitemapStream({ hostname: options.hostname })
+        const sitemap = await streamToPromise(Readable.from(paths.sort()).pipe(stream))
+
+        const publicDir = nitro.options.output.publicDir
+        mkdirSync(publicDir, { recursive: true })
+        writeFileSync(join(publicDir, 'sitemap.xml'), sitemap.toString())
+        nitro.logger.success('sitemap.xml created')
       })
     })
   }

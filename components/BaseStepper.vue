@@ -2,7 +2,7 @@
 <!-- eslint-disable vue/no-v-for-template-key -->
 <template>
   <div
-    class="mx-4 p-4 pt-12 pb-40"
+    class="mx-4 p-4 pb-40 pt-12"
     data-aos="fade-in"
     data-aos-duration="1500"
   >
@@ -18,7 +18,7 @@
           ]"
         >
           <div
-            class="flex h-20 w-20 items-center justify-center rounded-full border-4"
+            class="flex size-20 items-center justify-center rounded-full border-4"
             :class="[
               {'border-gray-300': step.status === 'incomplete'},
               {'border-gray-900': step.status === 'complete'},
@@ -47,7 +47,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { PropType } from 'vue'
+import type { PropType } from 'vue'
 export interface Step {
       title: string
       subtitle: string

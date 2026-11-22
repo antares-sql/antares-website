@@ -96,9 +96,11 @@
 import { computed } from 'vue'
 import { ArrowBackUpIcon } from 'vue-tabler-icons'
 import ColorField from './ColorField.vue'
-import { contrastRatio, isThemeColor, lengthToPx, over, parseColor, Rgba, toHex } from '~/libs/themeEditor/colors'
+import type { Rgba } from '~/libs/themeEditor/colors'
+import { contrastRatio, isThemeColor, lengthToPx, over, parseColor, toHex } from '~/libs/themeEditor/colors'
 import { colorLabels, editorLabels, shapeLabels, slotLabel, syntaxLabels } from '~/libs/themeEditor/labels'
-import { SyntaxStyle, useThemeEditor } from '~/libs/themeEditor/state'
+import type { SyntaxStyle } from '~/libs/themeEditor/state'
+import { useThemeEditor } from '~/libs/themeEditor/state'
 
 const props = defineProps({
   id: { type: String, required: true },
@@ -175,6 +177,7 @@ const section = () => {
   }
 }
 const set = (value: string) => { section()[name.value] = value }
+// eslint-disable-next-line @typescript-eslint/no-dynamic-delete
 const reset = () => { delete section()[name.value] }
 
 // Shape lengths
@@ -190,6 +193,7 @@ const editSyntax = () => {
   return theme.value.editor.syntax[name.value]
 }
 const setSyntax = (prop: keyof SyntaxStyle, value: string) => { editSyntax()[prop] = value }
+// eslint-disable-next-line @typescript-eslint/no-dynamic-delete
 const resetSyntax = () => { delete theme.value.editor.syntax[name.value] }
 const styleOptions = [
   { prop: 'fontWeight', on: 'bold', off: 'normal', text: 'B', css: 'fontWeight', title: 'Bold' },

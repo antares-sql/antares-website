@@ -1,7 +1,7 @@
 <template>
   <div class="overflow-hidden">
     <Head>
-      <Title>Errorr 404</Title>
+      <Title>Error 404</Title>
     </Head>
     <BasePageContent>
       <div class="-mt-24 flex h-screen items-center justify-center">
@@ -21,8 +21,8 @@
                 bg-gradient-to-tr
                 from-orange-700
                 to-orange-500
-                py-3
                 px-5
+                py-3
                 text-2xl
                 font-semibold
                 uppercase
