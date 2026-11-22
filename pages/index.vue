@@ -22,7 +22,7 @@
               lg:pr-0
             "
         >
-          <div class="space-y-10 py-10 text-center lg:flex lg:flex-1 lg:flex-col lg:content-center lg:justify-center lg:text-left">
+          <div class="space-y-10 py-10 text-center lg:flex lg:flex-1 lg:flex-col lg:place-content-center lg:text-left">
             <h1 class="text-5xl font-bold dark:text-gray-50">
               Open source SQL client<br>
               made to be simple.
@@ -42,8 +42,8 @@
                   whitespace-nowrap
                   rounded-2xl
                   bg-gray-50
-                  py-3
                   px-5
+                  py-3
                   text-2xl
                   font-semibold
                   text-gray-900
@@ -116,12 +116,14 @@
   </main>
 </template>
 <script setup lang="ts">
-import { Ref, ref, watch } from 'vue'
+import type { Ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useElementVisibility } from '@vueuse/core'
 import { DownloadIcon } from 'vue-tabler-icons'
 import BaseCard from '~/components/BaseCard.vue'
 import BaseGrid from '~/components/BaseGrid.vue'
-import BaseStepper, { Step } from '~/components/BaseStepper.vue'
+import type { Step } from '~/components/BaseStepper.vue'
+import BaseStepper from '~/components/BaseStepper.vue'
 
 const cards = [
   {

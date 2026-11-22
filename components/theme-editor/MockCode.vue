@@ -34,8 +34,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, PropType } from 'vue'
-import { CodeSample, parseLine } from '~/libs/themeEditor/samples'
+import type { PropType } from 'vue'
+import { computed } from 'vue'
+import type { CodeSample } from '~/libs/themeEditor/samples'
+import { parseLine } from '~/libs/themeEditor/samples'
 import { useThemeEditor } from '~/libs/themeEditor/state'
 
 const props = defineProps({

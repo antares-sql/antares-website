@@ -8,8 +8,8 @@
       max-w-screen-xl
       justify-between
       bg-gray-50
-      py-2
       px-4
+      py-2
       dark:bg-slate-800
       dark:text-gray-50
     "

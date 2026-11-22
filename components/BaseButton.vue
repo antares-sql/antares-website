@@ -7,7 +7,7 @@
   >
     <svg
       v-if="isLoading"
-      class="mx-3 h-6 w-6 animate-spin"
+      class="mx-3 size-6 animate-spin"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
@@ -34,7 +34,7 @@
 </template>
 
 <script setup  lang="ts">
-import { PropType } from 'vue'
+import type { PropType } from 'vue'
 
 type ButtonStyle = 'primary' | 'secondary' | 'plain' | 'link';
 

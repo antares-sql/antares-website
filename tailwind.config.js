@@ -1,16 +1,18 @@
+import typography from '@tailwindcss/typography'
+
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     './app.vue',
-    './pages/**/*.{vue,js}',
-    './components/**/*.{vue,js}'
+    './pages/**/*.{vue,js,ts}',
+    './components/**/*.{vue,js,ts}'
   ],
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     extend: {},
     fontFamily: {
       sans: ['Ubuntu', 'sans-serif']
     }
   },
-  plugins: [require('@tailwindcss/typography')]
+  plugins: [typography]
 }

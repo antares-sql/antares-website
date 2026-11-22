@@ -6,7 +6,7 @@
     <main class="flex items-center justify-center">
       <BasePageContent>
         <div class="pb-5 dark:text-slate-50">
-          <div class="space-y-10 py-16 px-5">
+          <div class="space-y-10 px-5 py-16">
             <h1 class="text-5xl font-bold leading-relaxed">
               One application,<br>
               different platforms.
@@ -26,7 +26,7 @@
                dark:text-gray-50
                lg:col-span-1
             "
-            :class="[(os === 'Windows' ? 'bg-slate-600 -m-4' : 'bg-slate-800')]"
+            :class="[(os === 'Windows' ? '-m-4 bg-slate-600' : 'bg-slate-800')]"
           >
             <svg class="m-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="64" width="64"><rect width="256" height="256" fill="none" />
               <polygon
@@ -118,7 +118,7 @@
                 </tr>
               </tbody>
             </table>
-            <a class="m-auto block" href="//www.microsoft.com/store/apps/9nhtb9sq51r1?cid=storebadge&amp;ocid=badge" rel="nofollow" target="_blank">
+            <a class="m-auto block" href="https://www.microsoft.com/store/apps/9nhtb9sq51r1?cid=storebadge&amp;ocid=badge" rel="nofollow" target="_blank">
               <img class="m-auto block" src="https://developer.microsoft.com/store/badges/images/English_get-it-from-MS.png" alt="English badge" style="height: 56px;">
             </a>
           </div>
@@ -131,7 +131,7 @@
                dark:text-gray-50
                lg:col-span-1
             "
-            :class="[(os === 'Linux' ? 'bg-slate-600 -m-4' : 'bg-slate-800')]"
+            :class="[(os === 'Linux' ? '-m-4 bg-slate-600' : 'bg-slate-800')]"
           >
             <svg class="m-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="64" width="64"><rect width="256" height="256" fill="none" />
               <path
@@ -272,7 +272,7 @@
                dark:text-gray-50
                lg:col-span-1
             "
-            :class="[(os === 'MacOS' ? 'bg-slate-600 -m-4' : 'bg-slate-800')]"
+            :class="[(os === 'MacOS' ? '-m-4 bg-slate-600' : 'bg-slate-800')]"
           >
             <svg class="m-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="64" width="64"><rect width="256" height="256" fill="none" />
               <path
@@ -349,7 +349,7 @@
               </tbody>
             </table>
             <div class="flex flex-wrap justify-center gap-2">
-              <a class="m-auto flex w-fit items-center justify-center whitespace-nowrap rounded-xl bg-gray-50 py-1 px-3 text-lg font-semibold text-gray-900 hover:opacity-80 focus:ring-2 focus:ring-blue-400 lg:m-0" href="https://support.apple.com/guide/mac-help/mh40616/mac" rel="nofollow" target="_blank">
+              <a class="m-auto flex w-fit items-center justify-center whitespace-nowrap rounded-xl bg-gray-50 px-3 py-1 text-lg font-semibold text-gray-900 hover:opacity-80 focus:ring-2 focus:ring-blue-400 lg:m-0" href="https://support.apple.com/guide/mac-help/mh40616/mac" rel="nofollow" target="_blank">
                 How to Install on MacOS
               </a>
             </div>
@@ -361,7 +361,8 @@
 </template>
 
 <script setup lang="ts">
-import { Ref, ref } from 'vue'
+import type { Ref } from 'vue'
+import { ref } from 'vue'
 import { DownloadIcon, ExternalLinkIcon } from 'vue-tabler-icons'
 import getOS from '~/libs/getOS'
 type ReleaseInfo = { name:string, browser_download_url : string };
