@@ -53,7 +53,7 @@
           title="Reset to the base theme value"
           @click="$emit('reset')"
         >
-          <ArrowBackUpIcon size="14" />
+          <AntaresIcon name="undo" size="14" />
         </button>
       </div>
     </div>
@@ -66,7 +66,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
-import { ArrowBackUpIcon } from 'vue-tabler-icons'
+import AntaresIcon from '~/components/theme-editor/AntaresIcon.vue'
 import ColorPicker from './ColorPicker.vue'
 import { isThemeColor, parseColor } from '~/libs/themeEditor/colors'
 

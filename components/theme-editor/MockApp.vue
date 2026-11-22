@@ -36,9 +36,9 @@
           <span class="am-logo" data-t="accent" />
           <span class="am-title">SQLite chinook • main • {{ tabTitle }}</span>
           <span class="am-winbuttons">
-            <span class="am-winbtn" data-t="c:bg-hover-strong"><MinusIcon size="14" /></span>
-            <span class="am-winbtn" data-t="c:bg-hover-strong"><SquareIcon size="12" /></span>
-            <span class="am-winbtn am-close"><XIcon size="14" /></span>
+            <span class="am-winbtn" data-t="c:bg-hover-strong"><AntaresIcon name="window-minimize" size="14" /></span>
+            <span class="am-winbtn" data-t="c:bg-hover-strong"><AntaresIcon name="window-maximize" size="12" /></span>
+            <span class="am-winbtn am-close"><AntaresIcon name="x" size="14" /></span>
           </span>
         </div>
 
@@ -68,11 +68,11 @@
                   <img :src="`/icons/${conn.icons[0]}.svg`" alt="">
                 </span>
               </button>
-              <span class="am-settingbar-icon"><PlusIcon size="22" /></span>
+              <span class="am-settingbar-icon"><AntaresIcon name="plus" size="22" /></span>
             </div>
             <div class="am-settingbar-bottom">
-              <span class="am-settingbar-icon" @click="setScene('text')"><NotebookIcon size="20" /></span>
-              <span class="am-settingbar-icon" @click="setScene('settings')"><SettingsIcon size="20" /></span>
+              <span class="am-settingbar-icon" @click="setScene('text')"><AntaresIcon name="notebook" size="20" /></span>
+              <span class="am-settingbar-icon" @click="setScene('settings')"><AntaresIcon name="cog" size="20" /></span>
             </div>
           </div>
 
@@ -80,16 +80,16 @@
           <div class="am-explorebar" data-t="c:bg-panel c:text c:shadow-color">
             <div class="am-explorebar-head">
               <span>SQLITE CHINOOK</span>
-              <RefreshIcon size="15" />
-              <PowerIcon size="15" />
+              <AntaresIcon name="refresh" size="15" />
+              <AntaresIcon name="power" size="15" />
             </div>
             <div class="am-search">
               <input class="am-input" placeholder="Search for elements" data-t="c:input-bg c:border c:text-placeholder s:radius s:border-width">
-              <SearchIcon size="14" />
+              <AntaresIcon name="search" size="14" />
             </div>
             <div class="am-tree am-scroll" data-t="c:scrollbar-track c:scrollbar-thumb c:scrollbar-thumb-hover s:scrollbar-size">
               <div class="am-db" data-t="c:bg-panel c:bg-panel-hover">
-                <ChevronDownIcon size="14" /><DatabaseIcon size="15" /><b>main</b>
+                <AntaresIcon name="chevron-down" size="14" /><AntaresIcon name="database" size="15" /><b>main</b>
               </div>
               <div
                 v-for="(table, i) in tables"
@@ -98,7 +98,7 @@
                 :class="{ selected: i === 0 }"
                 :data-t="i === 0 ? 'c:bg-hover' : 'c:bg-hover'"
               >
-                <TableIcon size="15" />
+                <AntaresIcon name="table" size="15" />
                 <span>{{ table.name }}</span>
                 <span class="am-pie" :style="{ background: `conic-gradient(var(--size-chart-fill) ${table.size}%, var(--size-chart-track) 0)` }" data-t="c:size-chart-fill c:size-chart-track" />
               </div>
@@ -116,11 +116,11 @@
                 :data-t="ui.tab === tab.id ? 'accent s:border-width-lg' : null"
                 @click="ui.tab = tab.id; ui.modal = null"
               >
-                <component :is="tab.icon" size="14" />
+                <AntaresIcon :name="tab.icon" size="14" />
                 <span>{{ tab.label }}</span>
-                <XIcon v-if="ui.tab === tab.id" size="12" class="am-tab-close" />
+                <AntaresIcon v-if="ui.tab === tab.id" name="x" size="12" class="am-tab-close" />
               </span>
-              <span class="am-tab am-tab-add"><PlusIcon size="15" /></span>
+              <span class="am-tab am-tab-add"><AntaresIcon name="plus" size="15" /></span>
             </div>
 
             <!-- Query tab -->
@@ -129,21 +129,21 @@
                 <MockCode :sample="sqlSample" />
               </div>
               <div class="am-query-toolbar">
-                <span class="am-btn am-btn-primary" data-t="accent s:radius"><PlayerPlayIcon size="14" /> Run</span>
-                <span class="am-btn am-btn-link" data-t="c:text"><EraserIcon size="14" /> Clear</span>
+                <span class="am-btn am-btn-primary" data-t="accent s:radius"><AntaresIcon name="play" size="14" /> Run</span>
+                <span class="am-btn am-btn-link" data-t="c:text"><AntaresIcon name="eraser" size="14" /> Clear</span>
                 <span class="am-divider-vert" data-t="c:divider" />
-                <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-dark-bg-hover c:btn-text s:radius"><BrushIcon size="14" /></span>
+                <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-dark-bg-hover c:btn-text s:radius"><AntaresIcon name="brush" size="14" /></span>
                 <span class="am-btn-group">
-                  <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-dark-bg-hover c:btn-text"><DeviceFloppyIcon size="14" /></span>
-                  <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-dark-bg-hover c:btn-text"><FolderIcon size="14" /></span>
+                  <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-dark-bg-hover c:btn-text"><AntaresIcon name="save" size="14" /></span>
+                  <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-dark-bg-hover c:btn-text"><AntaresIcon name="folder-open" size="14" /></span>
                 </span>
                 <span class="am-tooltip-anchor">
-                  <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-dark-bg-hover c:btn-text"><HistoryIcon size="14" /></span>
+                  <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-dark-bg-hover c:btn-text"><AntaresIcon name="history" size="14" /></span>
                   <span v-if="ui.tooltip" class="am-tooltip" data-t="c:tooltip-bg c:tooltip-text s:radius">Query history</span>
                 </span>
                 <span class="am-dropdown">
                   <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-dark-bg-hover c:btn-text" @click="ui.dropdown = !ui.dropdown">
-                    <FileExportIcon size="14" /> Export <ChevronDownIcon size="12" />
+                    <AntaresIcon name="file+up" size="14" /> Export <AntaresIcon name="chevron-down" size="12" />
                   </span>
                   <ul v-if="ui.dropdown" class="am-menu" data-t="c:bg-raised c:text c:shadow-color s:radius">
                     <li data-t="c:menu-hover-bg c:menu-hover-text">JSON</li>
@@ -154,9 +154,9 @@
                 </span>
               </div>
               <div class="am-query-info">
-                <HourglassIcon size="13" /> <b>0.005s</b>
-                <EqualIcon size="13" /> <b>8</b>
-                <span class="am-select am-select-sm" data-t="c:input-bg c:border s:radius"><DatabaseIcon size="13" /> main <ChevronDownIcon size="11" /></span>
+                <AntaresIcon name="hourglass" size="13" /> <b>0.005s</b>
+                <AntaresIcon name="equal" size="13" /> <b>8</b>
+                <span class="am-select am-select-sm" data-t="c:input-bg c:border s:radius"><AntaresIcon name="database" size="13" /> main <AntaresIcon name="chevron-down" size="11" /></span>
               </div>
               <div class="am-results am-scroll" data-t="c:bg-app c:scrollbar-track c:scrollbar-thumb s:scrollbar-size">
                 <div class="am-grid" data-t="c:grid-border s:grid-border-width">
@@ -167,7 +167,7 @@
                       class="am-th"
                       data-t="c:grid-header-bg c:grid-header-border c:text"
                     >
-                      <KeyIcon v-if="col.key" size="12" class="am-key" />{{ col.name }}
+                      <AntaresIcon v-if="col.key" name="key" size="12" class="am-key" />{{ col.name }}
                     </span>
                   </div>
                   <div v-for="(row, r) in gridRows" :key="r" class="am-grid-row">
@@ -184,7 +184,7 @@
               </div>
               <div v-if="ui.console" class="am-console" data-t="c:bg-surface c:separator">
                 <div class="am-console-head">
-                  <TerminalIcon size="13" /> Console <XIcon size="12" class="am-ml-auto" @click="ui.console = false" />
+                  <AntaresIcon name="terminal" size="13" /> Console <AntaresIcon name="x" size="12" class="am-ml-auto" @click="ui.console = false" />
                 </div>
                 <div class="am-console-log" data-t="c:bg-panel">
                   <span class="am-muted" data-t="c:text-muted">10:42:01</span> SELECT a.AlbumId, a.Title FROM albums a
@@ -201,11 +201,11 @@
             <!-- Table structure tab -->
             <div v-else-if="ui.tab === 'structure'" class="am-structure">
               <div class="am-query-toolbar">
-                <span class="am-btn am-btn-primary" data-t="accent"><DeviceFloppyIcon size="14" /> Save</span>
-                <span class="am-btn am-btn-link" data-t="c:text"><ArrowBackUpIcon size="14" /> Clear</span>
+                <span class="am-btn am-btn-primary" data-t="accent"><AntaresIcon name="save" size="14" /> Save</span>
+                <span class="am-btn am-btn-link" data-t="c:text"><AntaresIcon name="eraser" size="14" /> Clear</span>
                 <span class="am-divider-vert" data-t="c:divider" />
-                <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-text"><PlusIcon size="14" /> Add field</span>
-                <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-text"><KeyIcon size="14" /> Indexes</span>
+                <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-text"><AntaresIcon name="list+plus" size="14" /> Add field</span>
+                <span class="am-btn am-btn-dark" data-t="c:btn-dark-bg c:btn-text"><AntaresIcon name="key" size="14" /> Indexes</span>
               </div>
               <div class="am-table-wrap am-scroll" data-t="c:scrollbar-track c:scrollbar-thumb">
                 <div class="am-table am-table-hover">
@@ -221,7 +221,7 @@
                   >
                     <span class="am-tcell" data-t="c:table-border">{{ i + 1 }}</span>
                     <span class="am-tcell" data-t="c:table-border">
-                      <KeyIcon v-if="field.key" size="12" class="am-key" />
+                      <AntaresIcon v-if="field.key" name="key" size="12" class="am-key" />
                       <input v-if="i === 3" class="am-input am-input-cell" value="Title" data-t="c:input-bg c:border c:text">
                       <template v-else>{{ field.name }}</template>
                     </span>
@@ -285,11 +285,11 @@
         </div>
 
         <div class="am-footer" data-t="accent c:shadow-color">
-          <span class="am-footer-el"><DatabaseIcon size="14" /> SQLite 3.45.1 (x64 Windows_NT)</span>
-          <span class="am-ml-auto am-footer-el am-footer-link" @click="ui.console = !ui.console"><TerminalIcon size="14" /> Console</span>
-          <span class="am-footer-el am-footer-link"><HeartIcon size="14" /> Donate</span>
-          <span class="am-footer-el am-footer-link"><BugIcon size="14" /></span>
-          <span class="am-footer-el am-footer-link"><InfoCircleIcon size="14" /></span>
+          <span class="am-footer-el"><AntaresIcon name="server" size="14" /> SQLite 3.45.1 (x64 Windows_NT)</span>
+          <span class="am-ml-auto am-footer-el am-footer-link" @click="ui.console = !ui.console"><AntaresIcon name="terminal" size="14" /> Console</span>
+          <span class="am-footer-el am-footer-link"><AntaresIcon name="coffee" size="14" /> Donate</span>
+          <span class="am-footer-el am-footer-link"><AntaresIcon name="bug" size="14" /></span>
+          <span class="am-footer-el am-footer-link"><AntaresIcon name="info" size="14" /></span>
         </div>
 
         <!-- Context menu -->
@@ -300,19 +300,19 @@
           data-t="c:context-bg c:context-text c:context-border c:shadow-color s:radius s:border-width"
         >
           <div class="am-context-el" data-t="c:context-hover">
-            <PlayerPlayIcon size="14" /> Open table
+            <AntaresIcon name="table+cog" size="14" /> Open table
           </div>
           <div class="am-context-el hover" data-t="c:context-hover">
-            <FileExportIcon size="14" /> Export <ChevronRightIcon size="13" class="am-ml-auto" />
+            <AntaresIcon name="table+arrow" size="14" /> Export <AntaresIcon name="chevron-right" size="13" class="am-ml-auto" />
           </div>
           <div class="am-context-el" data-t="c:context-hover">
-            <CopyIcon size="14" /> Duplicate
+            <AntaresIcon name="tables" size="14" /> Duplicate
           </div>
           <div class="am-context-el" data-t="c:context-hover">
-            <EraserIcon size="14" /> Empty table
+            <AntaresIcon name="table+off" size="14" /> Empty table
           </div>
           <div class="am-context-el" data-t="c:context-hover">
-            <TrashIcon size="14" /> Delete
+            <AntaresIcon name="table+minus" size="14" /> Delete
           </div>
         </div>
 
@@ -322,8 +322,8 @@
 
           <div v-if="ui.modal === 'settings'" class="am-modal-container" data-t="c:bg-surface c:text c:shadow-color s:radius">
             <div class="am-modal-header" data-t="c:modal-header-bg c:modal-header-text">
-              <SettingsIcon size="16" /> Settings
-              <XIcon size="16" class="am-ml-auto am-pointer" @click="ui.modal = null" />
+              <AntaresIcon name="cog" size="16" /> Settings
+              <AntaresIcon name="x" size="16" class="am-ml-auto am-pointer" @click="ui.modal = null" />
             </div>
             <div class="am-tabs" data-t="c:border-subtle c:text">
               <span class="am-tabs-item" :class="{ active: ui.settingsTab === 'general' }" data-t="accent s:border-width-lg" @click="ui.settingsTab = 'general'">General</span>
@@ -334,7 +334,7 @@
             <div v-if="ui.settingsTab === 'general'" class="am-modal-body">
               <div class="am-form-row">
                 <label>Locale</label>
-                <span class="am-select" data-t="c:input-bg c:border c:text s:radius">English <ChevronDownIcon size="12" /></span>
+                <span class="am-select" data-t="c:input-bg c:border c:text s:radius">English <AntaresIcon name="chevron-down" size="12" /></span>
               </div>
               <div class="am-form-row">
                 <label>Results limit</label>
@@ -348,7 +348,7 @@
                 <label>Data folder</label>
                 <span class="am-input-group">
                   <input class="am-input" readonly value="C:\Users\me\AppData\antares" data-t="c:input-bg-readonly">
-                  <span class="am-input-addon" data-t="c:input-bg-readonly c:border"><FolderIcon size="13" /></span>
+                  <span class="am-input-addon" data-t="c:input-bg-readonly c:border"><AntaresIcon name="folder-open" size="13" /></span>
                 </span>
               </div>
               <div class="am-form-row">
@@ -398,8 +398,8 @@
 
           <div v-else-if="ui.modal === 'text'" class="am-modal-container am-modal-wide" data-t="c:bg-surface c:text c:shadow-color s:radius">
             <div class="am-modal-header" data-t="c:modal-header-bg c:modal-header-text">
-              <CodeIcon size="16" /> Edit "notes"
-              <XIcon size="16" class="am-ml-auto am-pointer" @click="ui.modal = null" />
+              <AntaresIcon name="code" size="16" /> Edit "notes"
+              <AntaresIcon name="x" size="16" class="am-ml-auto am-pointer" @click="ui.modal = null" />
             </div>
             <div class="am-modal-body">
               <MockCode :sample="textSamples[ui.textLang]" class="am-text-editor" />
@@ -424,12 +424,7 @@
 
 <script setup lang="ts">
 import { computed, nextTick, reactive, ref, watch } from 'vue'
-import {
-  ArrowBackUpIcon, BrushIcon, BugIcon, ChevronDownIcon, ChevronRightIcon, CodeIcon, CopyIcon, DatabaseIcon,
-  DeviceFloppyIcon, EqualIcon, EraserIcon, FileExportIcon, FolderIcon, HeartIcon, HierarchyIcon, HistoryIcon,
-  HourglassIcon, InfoCircleIcon, KeyIcon, MinusIcon, NotebookIcon, PlayerPlayIcon, PlusIcon, PowerIcon, RefreshIcon,
-  SearchIcon, SettingsIcon, SquareIcon, TableIcon, TerminalIcon, TrashIcon, XIcon
-} from 'vue-tabler-icons'
+import AntaresIcon from '~/components/theme-editor/AntaresIcon.vue'
 import MockCode from './MockCode.vue'
 import { lengthToPx, parseColor, readableTextOn, toHex } from '~/libs/themeEditor/colors'
 import { sampleOfSyntax, sqlSample, textSamples } from '~/libs/themeEditor/samples'
@@ -472,9 +467,9 @@ const setScene = (id: SceneId) => {
 }
 
 const workspaceTabs = [
-  { id: 'structure', label: 'albums', icon: TableIcon, temp: true },
-  { id: 'query', label: 'Query #1', icon: CodeIcon },
-  { id: 'diagram', label: 'Diagram', icon: HierarchyIcon }
+  { id: 'structure', label: 'albums', icon: 'table', temp: true },
+  { id: 'query', label: 'Query #1', icon: 'code' },
+  { id: 'diagram', label: 'Diagram', icon: 'diagram' }
 ] as const
 const tabTitle = computed(() => workspaceTabs.find(t => t.id === ui.tab)?.label)
 
