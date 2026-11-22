@@ -19,22 +19,22 @@
       </div>
       <div class="relative">
         <button class="te-btn" type="button" @click="menu = menu === 'new' ? null : 'new'">
-          <PlusIcon size="16" /> New
+          <AntaresIcon name="plus" size="16" /> New
         </button>
         <div v-if="menu === 'new'" class="te-menu">
           <button type="button" @click="startNew('dark')">
-            <MoonIcon size="15" /> From the built-in Dark
+            <AntaresIcon name="moon" size="15" /> From the built-in Dark
           </button>
           <button type="button" @click="startNew('light')">
-            <SunIcon size="15" /> From the built-in Light
+            <AntaresIcon name="sun" size="15" /> From the built-in Light
           </button>
         </div>
       </div>
       <button class="te-btn" type="button" @click="openGallery">
-        <PaletteIcon size="16" /> Gallery
+        <AntaresIcon name="palette" size="16" /> Gallery
       </button>
       <button class="te-btn" type="button" @click="fileInput?.click()">
-        <UploadIcon size="16" /> Import
+        <AntaresIcon name="upload" size="16" /> Import
       </button>
       <input
         ref="fileInput"
@@ -45,7 +45,7 @@
       >
       <div class="relative">
         <button class="te-btn te-btn-primary" type="button" :disabled="!catalog" @click="menu = menu === 'export' ? null : 'export'">
-          <DownloadIcon size="16" /> Export
+          <AntaresIcon name="download" size="16" /> Export
         </button>
         <div v-if="menu === 'export'" class="te-menu te-menu-right w-72">
           <label class="flex items-start gap-2 px-3 py-2 text-sm">
@@ -56,10 +56,10 @@
             </span>
           </label>
           <button type="button" @click="download">
-            <DownloadIcon size="15" /> Download {{ theme.id || 'theme' }}.json
+            <AntaresIcon name="download" size="15" /> Download {{ theme.id || 'theme' }}.json
           </button>
           <button type="button" @click="copy">
-            <CopyIcon size="15" /> Copy JSON
+            <AntaresIcon name="copy" size="15" /> Copy JSON
           </button>
           <p class="px-3 pb-2 pt-1 text-xs text-slate-400">
             Import it in Antares from <b>Settings → Themes → Import</b>, or share it in the
@@ -116,7 +116,7 @@
         </nav>
         <div class="flex-none px-3 pt-3">
           <div class="relative">
-            <SearchIcon size="15" class="absolute left-2 top-2 text-slate-500" />
+            <AntaresIcon name="search" size="15" class="absolute left-2 top-2 text-slate-500" />
             <input
               v-model="query"
               class="w-full rounded-md border border-slate-700 bg-black/30 py-1 pl-8 pr-2 text-sm outline-none focus:border-pink-400"
@@ -129,9 +129,9 @@
           <!-- Element picked in the preview -->
           <div v-if="selected.length && !query" class="mb-4 rounded-lg border border-pink-400/40 bg-pink-400/5 p-2">
             <div class="mb-1 flex items-center px-2 text-xs font-bold uppercase tracking-wide text-pink-300">
-              <PointerIcon size="14" class="mr-1" /> Selected element
+              <AntaresIcon name="pointer" size="14" class="mr-1" /> Selected element
               <button type="button" class="ml-auto text-slate-400 hover:text-slate-200" title="Close" @click="selected = []">
-                <XIcon size="14" />
+                <AntaresIcon name="x" size="14" />
               </button>
             </div>
             <TokenRow
@@ -276,7 +276,7 @@
               </label>
               <div class="border-t border-slate-700 pt-3">
                 <button type="button" class="te-btn w-full justify-center" @click="resetAll">
-                  <ArrowBackUpIcon size="15" /> Reset every value to the built-in {{ theme.appearance }} theme
+                  <AntaresIcon name="undo" size="15" /> Reset every value to the built-in {{ theme.appearance }} theme
                 </button>
               </div>
             </div>
@@ -291,7 +291,7 @@
         <div class="flex items-center border-b border-slate-700 px-4 py-3">
           <b>Start from a gallery theme</b>
           <button type="button" class="ml-auto text-slate-400 hover:text-white" @click="gallery.open = false">
-            <XIcon size="18" />
+            <AntaresIcon name="x" size="18" />
           </button>
         </div>
         <div class="overflow-y-auto p-4">
@@ -334,10 +334,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, reactive, ref } from 'vue'
-import {
-  ArrowBackUpIcon, CopyIcon, DownloadIcon, MoonIcon, PaletteIcon, PlusIcon, PointerIcon, SearchIcon, SunIcon,
-  UploadIcon, XIcon
-} from 'vue-tabler-icons'
+import AntaresIcon from '~/components/theme-editor/AntaresIcon.vue'
 import MockApp from '~/components/theme-editor/MockApp.vue'
 import TokenRow from '~/components/theme-editor/TokenRow.vue'
 import { colorLabels, editorLabels, groupLabels, shapeLabels, slotLabel, syntaxLabels } from '~/libs/themeEditor/labels'
