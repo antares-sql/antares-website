@@ -1,6 +1,8 @@
 <template>
   <div class="dark min-h-screen dark:bg-gray-900">
-    <BasePageContainer>
+    <!-- Full-screen tools (e.g. the theme editor) opt out of the header and footer with definePageMeta({ bare: true }) -->
+    <NuxtPage v-if="route.meta.bare" />
+    <BasePageContainer v-else>
       <NuxtPage />
     </BasePageContainer>
   </div>
@@ -11,6 +13,8 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import '@/assets/scss/main.scss'
 import BasePageContainer from './components/BasePageContainer.vue'
+
+const route = useRoute()
 
 const structuredData = JSON.stringify({
   '@context': 'https://schema.org',

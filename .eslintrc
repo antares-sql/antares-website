@@ -20,5 +20,11 @@
         "@typescript-eslint",
         "tailwindcss"
     ],
-    "rules": {}
+    "rules": {},
+    "overrides": [
+        {
+            "files": ["components/theme-editor/**", "pages/theme-editor.vue"],
+            "rules": { "tailwindcss/no-custom-classname": "off" }
+        }
+    ]
 }
