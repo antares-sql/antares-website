@@ -11,7 +11,7 @@ function getOS (): string {
   let os = null
 
   if (macosPlatforms.includes(platform)) {
-    os = 'MacOS'
+    os = 'macOS'
   } else if (iosPlatforms.includes(platform)) {
     os = 'iOS'
   } else if (windowsPlatforms.includes(platform)) {
