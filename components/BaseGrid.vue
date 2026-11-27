@@ -1,60 +1,42 @@
 <template>
-  <div
-    class="
-      mb-16
-      grid
-      max-w-none
-      lg:mb-32
-    "
-    :style="{ 'grid-template-columns': `repeat(${gridSize}, minmax(0, 1fr))`, gap: `${gapSize * 0.25}rem` }"
-  >
+  <!-- Row of value blocks: accent icon tile, title and a short text, open layout (no boxes) -->
+  <div class="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
     <div
       v-for="(block, i) in blocks"
       :key="block.title"
       data-aos="fade-in"
       data-aos-duration="1500"
       :data-aos-delay="200 * i"
-      class="
-        col-span-4
-        space-y-6
-        rounded-3xl
-        bg-slate-800
-        p-6
-        text-center
-        dark:text-gray-50
-        lg:col-span-1
-      "
+      class="group space-y-4 text-center text-gray-50 sm:text-left"
     >
-      <BrandOpenSourceIcon v-if="block.icon === 'BrandOpenSourceIcon'" size="64" class="m-auto" />
-      <CometIcon v-if="block.icon === 'CometIcon'" size="64" class="m-auto" />
-      <SocialIcon v-if="block.icon === 'SocialIcon'" size="64" class="m-auto" />
-      <WallIcon v-if="block.icon === 'WallIcon'" size="64" class="m-auto" />
-      <h4 class="text-xl font-bold">
+      <div class="mx-auto flex size-14 items-center justify-center rounded-2xl bg-accent-500/10 text-accent-500 ring-1 ring-accent-500/20 transition group-hover:bg-accent-500/20 sm:mx-0">
+        <component :is="icons[block.icon]" size="30" stroke-width="1.6" />
+      </div>
+      <h3 class="text-xl font-bold">
         {{ block.title }}
-      </h4>
-      <p>{{ block.content }}</p>
+      </h3>
+      <p class="text-gray-300">
+        {{ block.content }}
+      </p>
     </div>
   </div>
 </template>
+
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import { BrandOpenSourceIcon, CometIcon, SocialIcon, WallIcon } from 'vue-tabler-icons'// Temporary fix
+import { BrandOpenSourceIcon, CometIcon, SocialIcon, WallIcon } from 'vue-tabler-icons'
+
+const icons: Record<string, unknown> = { BrandOpenSourceIcon, CometIcon, SocialIcon, WallIcon }
+
 defineProps({
   blocks: {
     type: Object as PropType<{
       title: string
       content: string
+      /** Name of a Tabler icon registered in `icons` */
       icon: string
     }[]>,
     required: true
-  },
-  gridSize: {
-    type: Number,
-    default: () => 4
-  },
-  gapSize: {
-    type: Number,
-    default: () => 6
   }
 })
 </script>

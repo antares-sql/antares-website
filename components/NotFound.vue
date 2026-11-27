@@ -6,35 +6,13 @@
     <BasePageContent>
       <div class="-mt-24 flex h-screen items-center justify-center">
         <div class="space-y-10 pt-44 text-center">
-          <Error404Icon class="mx-auto dark:text-gray-50" size="128" />
-          <h1 class="text-7xl font-bold dark:text-gray-50">
+          <Error404Icon class="mx-auto text-accent-500" size="128" stroke-width="1.5" />
+          <h1 class="text-5xl font-bold text-gray-50 sm:text-7xl">
             Page not found!
           </h1>
-          <NuxtLink
-            to="/"
-            class="
-                inline-flex
-                items-center
-                justify-center
-                whitespace-nowrap
-                rounded-2xl
-                bg-gradient-to-tr
-                from-orange-700
-                to-orange-500
-                px-5
-                py-3
-                text-2xl
-                font-semibold
-                uppercase
-                text-white
-                hover:opacity-80
-                focus:ring-2
-                focus:ring-blue-400
-              "
-          >
-            <Home2Icon class="mr-2" />
-            Go to Home
-          </NuxtLink>
+          <BaseButton to="/" size="lg">
+            <Home2Icon /> Go to Home
+          </BaseButton>
         </div>
       </div>
     </BasePageContent>
@@ -42,4 +20,5 @@
 </template>
 <script setup>
 import { Home2Icon, Error404Icon } from 'vue-tabler-icons'
+import BaseButton from './BaseButton.vue'
 </script>

@@ -58,7 +58,22 @@ useHead({
   ]
 })
 
+// Defaults for link previews; pages override the description
+useSeoMeta({
+  description: 'Antares SQL is a modern, fast and productivity driven SQL client for MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL, forever 100% free and open source.',
+  ogSiteName: 'Antares SQL',
+  ogType: 'website',
+  ogImage: 'https://antares-sql.app/images/og.png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: 'Antares SQL: open source SQL client made to be simple',
+  twitterCard: 'summary_large_image'
+})
+
 onMounted(() => {
-  AOS.init()
+  AOS.init({
+    once: true,
+    disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  })
 })
 </script>

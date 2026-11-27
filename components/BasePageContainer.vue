@@ -1,5 +1,5 @@
 <template>
-  <div class="container min-h-screen bg-gray-200 dark:bg-gray-800">
+  <div class="container min-h-screen bg-page">
     <TheHeader />
     <div class="flex grow flex-col justify-between">
       <slot />

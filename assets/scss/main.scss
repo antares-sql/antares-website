@@ -1,13 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+html {
+   scroll-padding-top: 5rem; // below the sticky header
+}
 
 .gradient-animate {
    background-size: 400%;
-
-   -webkit-animation: GradientAnimation 5s ease infinite;
-   -moz-animation: GradientAnimation 5s ease infinite;
    animation: GradientAnimation 5s ease infinite;
 }
 
@@ -18,5 +19,11 @@
    }
    50% {
       background-position: 100% 50%;
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   .gradient-animate {
+      animation: none;
    }
 }

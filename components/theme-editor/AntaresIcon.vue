@@ -39,10 +39,8 @@ const maskMarkup = (content: string) =>
   + '</mask></defs>'
 
 const content = computed(() => {
-  if (props.name.startsWith('brand:')) {
-    const path = brands[props.name.slice(6)]
-    return path ? `<path class="d" d="${path}"/>` : ''
-  }
+  if (props.name.startsWith('brand:'))
+    return brands[props.name.slice(6)] ?? ''
 
   const [glyph, modifier] = props.name.split('+')
   if (!glyphs[glyph]) return ''
@@ -63,7 +61,7 @@ const content = computed(() => {
   overflow: visible;
   fill: none;
   stroke: currentColor;
-  stroke-width: 2.25;
+  stroke-width: var(--icon-stroke-width, 2.25);
   stroke-linecap: round;
   stroke-linejoin: round;
 }

@@ -7,8 +7,8 @@ export default withNuxt(
   {
     settings: {
       tailwindcss: {
-        // State marker classes, not Tailwind utilities
-        whitelist: ['loading']
+        // State marker classes and the few site classes defined in CSS (assets/scss/main.scss, TheHeader.vue)
+        whitelist: ['loading', 'gradient-animate', 'nav-link']
       }
     }
   },
