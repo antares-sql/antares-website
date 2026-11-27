@@ -1,21 +1,14 @@
 <template>
   <main>
     <BasePageContent v-if="page">
-      <div class="pb-20 dark:text-slate-50">
-        <div class="px-5 py-16">
-          <h1 class="text-5xl">
+      <div class="pb-20 text-gray-50">
+        <div class="px-1 py-12 lg:py-16">
+          <h1 class="text-4xl font-bold sm:text-5xl">
             {{ page.fullTitle || page.title }}
           </h1>
         </div>
         <ContentRenderer
-          class="
-            prose
-            max-w-none
-            rounded-3xl
-            bg-slate-800
-            p-8
-            dark:prose-invert
-          "
+          class="prose prose-invert max-w-none rounded-3xl bg-surface p-8 ring-1 ring-white/5 lg:p-12"
           :value="page"
         />
       </div>
@@ -55,7 +48,7 @@ useHead(() => ({
   }
 
   :not(h2) a {
-    color: theme('colors.orange.500');
+    color: theme('colors.accent.500');
   }
 
   p {
