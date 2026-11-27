@@ -107,7 +107,7 @@
               Supported Databases
             </h2>
             <div class="text-2xl dark:text-gray-50">
-              Antares SQL is in a beta phase but it fully supports MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL. Support to other databases will come in future releases.
+              Antares SQL is in a beta phase but it fully supports MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL. SQL Server and DuckDB are the next ones, and more databases will come in future releases.
             </div>
           </div>
         </template>
@@ -191,49 +191,49 @@ const steps: Step[] = [
     subtitle: 'Fully supported',
     status: 'complete',
     nextStatus: 'complete',
-    icon: `<div class="relative w-20 h-20">
-      <img class="absolute top-2 left-0 w-12" src="icons/mysql.svg" title="MySQL">
-      <img class="absolute bottom-1 right-1 w-12" src="icons/mariadb.svg" title="MariaDB">
-    </div>`
+    icons: ['brand:mysql', 'brand:mariadb']
   },
   {
     title: 'PostgreSQL',
     subtitle: 'Supported',
     status: 'complete',
     nextStatus: 'complete',
-    icon: '<img class="w-16" src="icons/pg.svg" title="PostgreSQL">'
+    icons: ['brand:postgresql']
   },
   {
     title: 'SQLite',
     subtitle: 'Supported',
     status: 'complete',
     nextStatus: 'complete',
-    icon: '<img class="w-16" src="icons/sqlite.svg" title="SQLite">'
+    icons: ['brand:sqlite']
   },
   {
     title: 'Firebird SQL',
     subtitle: 'Supported',
     status: 'complete',
     nextStatus: 'incomplete',
-    icon: '<img class="w-16" src="icons/firebird.svg" title="Firebird SQL">'
+    icons: ['brand:firebird']
   },
   {
     title: 'SQL Server',
     subtitle: 'Coming',
     status: 'incomplete',
     nextStatus: 'incomplete',
-    icon: '<img class="w-16" src="icons/mssql.svg" title="SQL Server">'
+    icons: ['brand:sqlserver']
+  },
+  {
+    title: 'DuckDB',
+    subtitle: 'Coming',
+    status: 'incomplete',
+    nextStatus: 'incomplete',
+    icons: ['brand:duckdb']
   },
   {
     title: 'More...',
     subtitle: 'Coming',
     status: 'incomplete',
     nextStatus: false,
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="90%" height="90%" fill="none" viewBox="0 0 24 24" stroke="#FFF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="w-12">
-        <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-    </svg>`
+    icons: ['database']
   }
 ]
 

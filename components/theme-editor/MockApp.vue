@@ -62,10 +62,10 @@
                   :style="{ background: slotColor(conn.slot) }"
                   :data-t="`a:${conn.slot} s:radius-lg`"
                 >
-                  <img v-for="icon in conn.icons" :key="icon" :src="`/icons/${icon}.svg`" alt="">
+                  <AntaresIcon v-for="(icon, i) in conn.icons" :key="i" :name="`brand:${icon}`" size="15" />
                 </span>
                 <span v-else class="am-conn-icon" :style="{ '--tile': slotColor(conn.slot) }" :data-t="`a:${conn.slot}`">
-                  <img :src="`/icons/${conn.icons[0]}.svg`" alt="">
+                  <AntaresIcon :name="`brand:${conn.icons[0]}`" size="28" />
                 </span>
               </button>
               <span class="am-settingbar-icon"><AntaresIcon name="plus" size="22" /></span>
@@ -475,9 +475,9 @@ const tabTitle = computed(() => workspaceTabs.find(t => t.id === ui.tab)?.label)
 
 const connections = [
   { name: 'SQLite chinook', slot: 'default', icons: ['sqlite'] },
-  { name: 'Production', slot: 'royal-lblue', icons: ['pg', 'mysql', 'mariadb', 'pg'], folder: true },
+  { name: 'Production', slot: 'royal-lblue', icons: ['postgresql', 'mysql', 'mariadb', 'postgresql'], folder: true },
   { name: 'Staging', slot: 'emerald', icons: ['mysql', 'mariadb'], folder: true },
-  { name: 'Analytics', slot: 'grape-fruit', icons: ['pg'], folder: true },
+  { name: 'Analytics', slot: 'grape-fruit', icons: ['postgresql'], folder: true },
   { name: 'Legacy', slot: 'sunflower', icons: ['firebird'], folder: true }
 ]
 
@@ -863,12 +863,13 @@ watch(catalog, () => applyHighlight())
   border-radius: var(--radius-lg);
 }
 
-.am-folder img {
+.am-folder .antares-icon {
   width: 15px;
   height: 15px;
   padding: 1px;
   border-radius: 3px;
   background: rgb(0 0 0 / 25%);
+  color: #fff;
 }
 
 .am-conn.active .am-folder,
@@ -886,7 +887,7 @@ watch(catalog, () => applyHighlight())
   background: color-mix(in srgb, var(--tile) 25%, transparent);
 }
 
-.am-conn-icon img { width: 28px; height: 28px; }
+.am-conn-icon .antares-icon { color: var(--settingbar-text); }
 
 .am-settingbar-icon {
   display: flex;

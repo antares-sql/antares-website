@@ -1,4 +1,3 @@
-<!-- eslint-disable vue/no-v-html -->
 <!-- eslint-disable vue/no-v-for-template-key -->
 <template>
   <div
@@ -25,8 +24,13 @@
               {'border-orange-600': step.status === 'partial'},
               {'bg-orange-600': step.status === 'complete'}
             ]"
-            v-html="step.icon"
-          />
+          >
+            <div v-if="step.icons.length > 1" class="relative size-14">
+              <AntaresIcon :name="step.icons[0]" size="34" class="absolute left-0 top-0" />
+              <AntaresIcon :name="step.icons[1]" size="34" class="absolute bottom-0 right-0" />
+            </div>
+            <AntaresIcon v-else :name="step.icons[0]" size="44" />
+          </div>
           <div class="top-0 flex h-16 w-32 items-center pl-2 text-center text-xl font-medium  text-gray-300 lg:absolute lg:-ml-6 lg:mt-20 lg:justify-center lg:pl-0">
             {{ step.title }}
           </div>
@@ -48,12 +52,15 @@
 </template>
 <script setup lang="ts">
 import type { PropType } from 'vue'
+import AntaresIcon from '~/components/theme-editor/AntaresIcon.vue'
+
 export interface Step {
       title: string
       subtitle: string
       status: 'incomplete' | 'partial' | 'complete'
       nextStatus: 'incomplete' | 'complete' | false
-      icon: string
+      /** Antares icon names (`brand:mysql`, `database`...): one, or two drawn overlapped */
+      icons: string[]
     }
 
 defineProps({
