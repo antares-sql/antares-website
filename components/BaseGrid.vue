@@ -1,15 +1,17 @@
 <template>
-  <!-- Row of value blocks: icon, title and a short text -->
-  <div class="mb-20 grid gap-6 sm:grid-cols-2 lg:mb-32 lg:grid-cols-4">
+  <!-- Row of value blocks: accent icon tile, title and a short text, open layout (no boxes) -->
+  <div class="grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
     <div
       v-for="(block, i) in blocks"
       :key="block.title"
       data-aos="fade-in"
       data-aos-duration="1500"
       :data-aos-delay="200 * i"
-      class="space-y-4 rounded-3xl bg-surface p-8 text-center text-gray-50 ring-1 ring-white/5 transition duration-300 hover:-translate-y-1 hover:ring-accent-500/40"
+      class="group space-y-4 text-center text-gray-50 sm:text-left"
     >
-      <component :is="icons[block.icon]" size="56" class="m-auto text-accent-500" stroke-width="1.5" />
+      <div class="mx-auto flex size-14 items-center justify-center rounded-2xl bg-accent-500/10 text-accent-500 ring-1 ring-accent-500/20 transition group-hover:bg-accent-500/20 sm:mx-0">
+        <component :is="icons[block.icon]" size="30" stroke-width="1.6" />
+      </div>
       <h3 class="text-xl font-bold">
         {{ block.title }}
       </h3>

@@ -37,6 +37,7 @@ pages/
   [...slug].vue          Markdown pages from content/, plus 301 redirects of old URLs
 components/
   Base*.vue              Site building blocks: BaseButton, BaseCard, BaseGrid, BaseStepper, page containers (see DESIGN.md)
+  SectionHeader.vue      Eyebrow + title + lead intro shared by the sections
   AppFrame.vue           Framed app video/screenshot (poster, plays while visible)
   DownloadPlatform.vue   Download column of one OS
   The*.vue               Header (sticky) and footer

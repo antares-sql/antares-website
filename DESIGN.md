@@ -8,6 +8,8 @@ For the app's own design system see `DESIGN.md` in the antares repo.
 
 - **Show the real app.** Videos and icons come from the current app, never mockups or stock images; when the app changes, the media follow.
 - **Dark, warm, calm.** A dark page with orange accents and one animated gradient that frames the product.
+- **Open sections.** After the hero, sections are not boxed: an intro (eyebrow, title, lead, text) next to floating media,
+  as in the Themes section of the home. Surfaces are for interactive groups (download columns, closing call to action).
 - **Few components, reused.** New sections are built from the `Base*` components; a new pattern becomes a component when it is used twice.
 - **Honest copy.** Every claim matches the app README/CHANGELOG (see AGENTS.md).
 
@@ -31,7 +33,7 @@ The roles have names in [tailwind.config.js](tailwind.config.js): use them inste
 | Focus ring | `focus-visible:ring-2 focus-visible:ring-blue-400` |
 
 **Signature gradient**: `bg-gradient-to-tl from-rose-400 via-orange-500 to-purple-500` with the `gradient-animate` class
-([main.scss](assets/scss/main.scss), 5 s loop). It frames the product only: the hero, the media side of the feature cards and the 1 px border of the closing call to action.
+([main.scss](assets/scss/main.scss), 5 s loop). It frames the product only: the hero, the slab behind the feature videos (slightly rotated) and the 1 px border of the closing call to action.
 Don't use it for text, buttons or backgrounds of whole sections. It stops with `prefers-reduced-motion`.
 
 ### Typography
@@ -55,7 +57,8 @@ a forced break there leaves single words on a line.
 
 - Radius: `rounded-3xl` for sections and cards, `rounded-2xl`/`rounded-xl` for buttons, `rounded-lg` for small controls.
 - Content width: `max-w-screen-xl px-4`, given by `BasePageContent`.
-- Vertical rhythm between home sections: `py-20 lg:py-28` (`space-y-16 lg:space-y-24` in lists of cards); inner padding of cards `p-6` to `p-12`.
+- Vertical rhythm between home sections: `py-20 lg:py-28`/`lg:py-32`, features `space-y-24 lg:space-y-36`; a `border-t border-line`
+  separates the closing sections (principles, databases). Two-column sections use `grid items-center gap-12 lg:grid-cols-2 lg:gap-16`.
 - The header is sticky: anchors get `scroll-padding-top` from main.scss.
 - Mobile first: one column, `lg:` switches to the desktop layout.
 
@@ -82,9 +85,10 @@ a forced break there leaves single words on a line.
 | `BasePageContent` | Width-limited content area of every page |
 | `BaseButton` | Every button and button-like link (`to`: internal path or external URL). Variants `primary` (orange gradient), `light` (white, on the hero gradient), `secondary` (raised surface), `ghost` (outlined, on gradients); sizes `sm`/`md`/`lg` |
 | `AppFrame` | Frame of app media: a video with poster (plays while visible) or a still image, with window shadow and ring; `rounded` takes the corner classes so it can bleed off an edge |
-| `BaseCard` | Feature card: eyebrow, title, subtitle and content on one side, the `AppFrame` over the gradient on the other (`mediaPosition` alternates right/left) |
-| `BaseGrid` | Row of value blocks (Tabler icon in accent, title, text) |
-| `BaseStepper` | Supported databases timeline: `complete` steps are orange, coming ones gray |
+| `SectionHeader` | Intro of every section: eyebrow, title, lead (trusted markup) and a slot for text and buttons; `align` left (default, centered on phones) or center |
+| `BaseCard` | Feature: `SectionHeader` with the content on one side, the `AppFrame` over a rotated gradient slab on the other (`mediaPosition` alternates right/left) |
+| `BaseGrid` | Value blocks without boxes: icon in an accent-tinted tile, title, text |
+| `BaseStepper` | Supported databases timeline, horizontal on desktop and vertical on phones: `complete` steps are filled orange with orange segments, coming ones dashed outlines |
 | `DownloadPlatform` | Download column of an OS: groups (Stable with its version, Pre-release with beta/nightly badges), rows with a download icon button, a slot for store badges; `current` highlights the visitor's OS (first on phones) |
 | `NotFound` | 404 content |
 

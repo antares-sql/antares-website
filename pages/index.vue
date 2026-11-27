@@ -51,27 +51,33 @@
       </section>
 
       <!-- About -->
-      <section class="mx-auto max-w-4xl space-y-6 py-20 text-center text-gray-50 lg:py-28" data-aos="fade-in" data-aos-duration="1500">
-        <h2 class="text-4xl font-bold sm:text-5xl">
-          About Antares Project
-        </h2>
-        <p class="text-2xl text-gray-200">
-          A new star is born, and is growing fast.
-        </p>
-        <p class="text-lg text-gray-300">
-          <a class="font-bold text-accent-500 hover:underline" href="https://en.wikipedia.org/wiki/Antares" target="_blank" rel="nofollow">Antares</a>
-          is an SQL client that aims to become a useful and complete tool, especially for developers.
-          It runs on Windows, Linux and macOS, ARM included, and works with <b class="text-gray-50">MySQL/MariaDB</b>, <b class="text-gray-50">PostgreSQL</b>,
-          <b class="text-gray-50">SQLite</b> and <b class="text-gray-50">Firebird SQL</b>; more databases are on the way.
-        </p>
-        <p class="text-lg text-gray-300">
-          Give it a try and <a class="font-bold text-accent-500 hover:underline" href="https://github.com/antares-sql/antares/discussions" target="_blank">send us your feedback</a>:
-          it shapes what comes next.
-        </p>
+      <section class="grid items-center gap-12 py-20 lg:grid-cols-2 lg:gap-16 lg:py-32" data-aos="fade-in" data-aos-duration="1500">
+        <SectionHeader eyebrow="About" title="About Antares Project" lead="A new star is born, and is growing fast.">
+          <p class="text-lg text-gray-300">
+            <a class="font-bold text-accent-500 hover:underline" href="https://en.wikipedia.org/wiki/Antares" target="_blank" rel="nofollow">Antares</a>
+            is an SQL client that aims to become a useful and complete tool, especially for developers.
+            It runs on Windows, Linux and macOS, ARM included, and works with <b class="text-gray-50">MySQL/MariaDB</b>, <b class="text-gray-50">PostgreSQL</b>,
+            <b class="text-gray-50">SQLite</b> and <b class="text-gray-50">Firebird SQL</b>; more databases are on the way.
+          </p>
+          <p class="text-lg text-gray-300">
+            Give it a try and <a class="font-bold text-accent-500 hover:underline" href="https://github.com/antares-sql/antares/discussions" target="_blank">send us your feedback</a>:
+            it shapes what comes next.
+          </p>
+        </SectionHeader>
+        <dl class="grid grid-cols-2 gap-x-8 gap-y-10 border-line text-gray-50 lg:border-l lg:pl-16">
+          <div v-for="fact in facts" :key="fact.label" class="flex flex-col-reverse gap-1 text-center sm:text-left">
+            <dt class="text-sm text-gray-400">
+              {{ fact.label }}
+            </dt>
+            <dd class="bg-gradient-to-r from-accent-400 to-rose-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+              {{ fact.value }}
+            </dd>
+          </div>
+        </dl>
       </section>
 
       <!-- Features -->
-      <div class="space-y-16 lg:space-y-24">
+      <div class="space-y-24 lg:space-y-36">
         <BaseCard
           v-for="card in cards"
           :key="card.title"
@@ -82,18 +88,9 @@
       </div>
 
       <!-- Themes -->
-      <section class="py-20 lg:py-32" data-aos="fade-in" data-aos-duration="1500">
+      <section class="py-24 lg:py-36" data-aos="fade-in" data-aos-duration="1500">
         <div class="grid items-center gap-12 text-gray-50 lg:grid-cols-2">
-          <div class="space-y-5 text-center lg:text-left">
-            <p class="text-sm font-bold uppercase tracking-widest text-accent-500">
-              Themes
-            </p>
-            <h2 class="text-4xl font-bold">
-              Make it yours
-            </h2>
-            <p class="text-xl text-gray-200">
-              Light or dark, high contrast or your favorite editor colors.
-            </p>
+          <SectionHeader eyebrow="Themes" title="Make it yours" lead="Light or dark, high contrast or your favorite editor colors.">
             <p class="text-lg text-gray-300">
               Install themes from the gallery right inside the app: each one restyles the whole interface together with the code editor.
               Want your own? Design it in the theme editor with a live preview, then share it in the gallery.
@@ -106,7 +103,7 @@
                 Browse the gallery <ExternalLinkIcon size="18" />
               </BaseButton>
             </div>
-          </div>
+          </SectionHeader>
           <div class="relative mx-auto aspect-[1024/800] w-full max-w-xl" aria-hidden="true">
             <img
               v-for="(theme, i) in themes"
@@ -121,21 +118,30 @@
         </div>
       </section>
 
-      <BaseGrid :blocks="blocks" />
+      <!-- Values -->
+      <section class="space-y-14 border-t border-line py-20 lg:py-28">
+        <SectionHeader
+          eyebrow="Principles"
+          title="Made by developers, for the community"
+          align="center"
+          data-aos="fade-in"
+          data-aos-duration="1500"
+        />
+        <BaseGrid :blocks="blocks" />
+      </section>
 
-      <BaseStepper :steps="steps">
-        <template #header>
-          <div class="mx-auto max-w-3xl space-y-5 pb-24 text-center text-gray-50">
-            <h2 class="text-4xl font-bold">
-              Supported Databases
-            </h2>
-            <p class="text-xl text-gray-200">
-              Antares SQL fully supports MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL.
-              SQL Server and DuckDB are the next ones, and more databases will come in future releases.
-            </p>
-          </div>
-        </template>
-      </BaseStepper>
+      <!-- Databases -->
+      <section class="space-y-16 border-t border-line py-20 lg:py-28">
+        <SectionHeader
+          eyebrow="Databases"
+          title="Supported Databases"
+          lead="Antares SQL fully supports MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL. SQL Server and DuckDB are the next ones, and more databases will come in future releases."
+          align="center"
+          data-aos="fade-in"
+          data-aos-duration="1500"
+        />
+        <BaseStepper :steps="steps" />
+      </section>
 
       <!-- Closing call to action -->
       <section class="mb-20 lg:mb-28" data-aos="fade-in" data-aos-duration="1500">
@@ -174,6 +180,7 @@ import BaseCard from '~/components/BaseCard.vue'
 import BaseGrid from '~/components/BaseGrid.vue'
 import type { Step } from '~/components/BaseStepper.vue'
 import BaseStepper from '~/components/BaseStepper.vue'
+import SectionHeader from '~/components/SectionHeader.vue'
 
 useSeoMeta({
   ogTitle: 'Antares SQL | Free and Open Source Client',
@@ -186,6 +193,14 @@ const engines = [
   { name: 'PostgreSQL', icon: 'postgresql' },
   { name: 'SQLite', icon: 'sqlite' },
   { name: 'Firebird SQL', icon: 'firebird' }
+]
+
+// Key figures of the About section (keep them in line with the app README)
+const facts = [
+  { value: '100%', label: 'Free and open source' },
+  { value: '4', label: 'Database engines, more coming' },
+  { value: '3', label: 'Operating systems, ARM included' },
+  { value: '0', label: 'Telemetry or ads' }
 ]
 
 const cards: Card[] = [
