@@ -60,7 +60,8 @@ a forced break there leaves single words on a line.
 - Vertical rhythm between home sections: `py-20 lg:py-28`/`lg:py-32`, features `space-y-24 lg:space-y-36`; a `border-t border-line`
   separates the closing sections (principles, databases). Two-column sections use `grid items-center gap-12 lg:grid-cols-2 lg:gap-16`.
 - The header is sticky: anchors get `scroll-padding-top` from main.scss.
-- Mobile first: one column, `lg:` switches to the desktop layout.
+- Mobile first: one column, `lg:` switches to the desktop layout. Nothing may scroll the page sideways (check 320 px):
+  decorations that stick out (rotated slabs) get room on their side, and `body` clips horizontal overflow as a safety net.
 
 ### Iconography
 
@@ -102,7 +103,7 @@ Store badges (Microsoft Store, Flathub, Snap, AUR) use the official badge images
   readable at half the page width. 12–22 s, under 2 MB, no audio, a fake cursor with a click ripple, keycap badges for shortcuts.
 - Data on screen: the sample databases (sakila, pagila, chinook...), neutral connection names, no personal paths or hosts.
 - Every video has a **poster** in `public/images/posters/` (WebP, a meaningful frame: results on screen, a finished dialog).
-  It shows before the video loads (`preload="none"`, `metadata` for the hero), on phones instead of the hero video and with reduced motion.
+  It shows before the video loads (`preload="none"`, `metadata` for the hero) and with reduced motion.
 - Theme previews in `public/images/themes/` are the `preview.png` of the gallery (antares-sql/themes), converted to WebP.
 - `public/images/og.png` (1200×630) is the link preview image: logo, tagline and the hero poster over the gradient.
 - Images get a meaningful `alt`; decorative ones `alt=""`.

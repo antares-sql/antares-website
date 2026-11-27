@@ -34,17 +34,10 @@
           </div>
           <div class="px-6 lg:px-0">
             <AppFrame
-              class="hidden lg:block"
               video="/videos/main.webm"
               poster="/images/posters/main.webp"
               preload="metadata"
-              rounded="rounded-l-xl"
-            />
-            <AppFrame
-              class="lg:hidden"
-              poster="/images/posters/main.webp"
-              alt="Antares SQL showing the rows of a MySQL table"
-              rounded="rounded-t-xl"
+              rounded="rounded-t-xl lg:rounded-none lg:rounded-l-xl"
             />
           </div>
         </div>

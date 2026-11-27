@@ -10,10 +10,10 @@
       <!-- eslint-disable-next-line vue/no-v-html -->
       <div class="space-y-3 text-lg text-gray-300" v-html="card.content" />
     </SectionHeader>
-    <div class="relative mx-auto w-full max-w-xl">
+    <div class="relative mx-auto w-full max-w-xl lg:w-auto" :class="card.mediaPosition === 'left' ? 'lg:ml-6 lg:mr-0' : 'lg:ml-0 lg:mr-6'">
       <div
         class="gradient-animate absolute inset-0 rounded-3xl bg-gradient-to-tl from-rose-400 via-orange-500 to-purple-500"
-        :class="card.mediaPosition === 'left' ? '-translate-x-4 translate-y-4 -rotate-2' : 'translate-x-4 translate-y-4 rotate-2'"
+        :class="card.mediaPosition === 'left' ? '-translate-x-2 translate-y-3 -rotate-1 sm:-translate-x-4 sm:translate-y-4 sm:-rotate-2' : 'translate-x-2 translate-y-3 rotate-1 sm:translate-x-4 sm:translate-y-4 sm:rotate-2'"
         aria-hidden="true"
       />
       <AppFrame

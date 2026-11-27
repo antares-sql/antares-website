@@ -7,6 +7,10 @@ html {
    scroll-padding-top: 5rem; // below the sticky header
 }
 
+body {
+   overflow-x: clip; // decorations (rotated slabs, bleeding frames) must never scroll the page sideways
+}
+
 .gradient-animate {
    background-size: 400%;
    animation: GradientAnimation 5s ease infinite;

@@ -1,7 +1,7 @@
 <template>
   <!-- Download column of one operating system: stable files first, pre-release builds below -->
   <section
-    class="flex flex-col gap-6 rounded-3xl p-6 text-gray-50 ring-1 transition lg:p-8"
+    class="flex min-w-0 flex-col gap-6 rounded-3xl p-5 text-gray-50 ring-1 transition sm:p-6 lg:p-8"
     :class="current ? 'bg-surface-raised ring-accent-500/60' : 'bg-surface ring-white/5'"
     :aria-labelledby="`platform-${name}`"
   >
@@ -23,8 +23,8 @@
       </p>
       <ul v-else class="divide-y divide-white/5">
         <li v-for="row in group.rows" :key="row.url" class="flex items-center gap-3 py-2">
-          <span class="w-16 shrink-0 text-gray-300">{{ row.arch }}</span>
-          <span class="grow">{{ row.format }}</span>
+          <span class="w-14 shrink-0 text-gray-300 sm:w-16">{{ row.arch }}</span>
+          <span class="min-w-0 grow">{{ row.format }}</span>
           <span v-if="row.channel" class="rounded-md px-2 py-0.5 text-xs font-medium" :class="channelClass[row.channel]" :title="row.version">{{ row.channel }}</span>
           <a
             :href="row.url"
