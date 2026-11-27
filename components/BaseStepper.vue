@@ -9,11 +9,12 @@
       data-aos-duration="1200"
       :data-aos-delay="100 * i"
     >
-      <!-- segment from the previous step, colored by its nextStatus -->
+      <!-- segment from the previous step, colored by its nextStatus: from circle edge to circle edge (each step is its own
+           stacking context because of AOS, so a segment drawn under the circles would still cover the previous one) -->
       <span
         v-if="i > 0"
         aria-hidden="true"
-        class="absolute -top-6 left-8 h-6 w-0.5 lg:-left-1/2 lg:right-1/2 lg:top-8 lg:h-0.5 lg:w-auto"
+        class="absolute -top-6 left-8 h-6 w-0.5 lg:left-[calc(-50%+2rem)] lg:right-[calc(50%+2rem)] lg:top-8 lg:h-0.5 lg:w-auto"
         :class="steps[i - 1].nextStatus === 'complete' ? 'bg-accent-600' : 'bg-white/10'"
       />
       <div
