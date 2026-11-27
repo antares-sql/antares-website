@@ -59,7 +59,7 @@
           <div class="relative hidden min-h-fit flex-1 overflow-hidden rounded-l-xl lg:block">
             <video ref="player" muted loop>
               <source src="/videos/main.webm" type="video/webm">
-              <img src="/images/screen1c.png" alt="Antares screenshot" class="relative rounded-l-lg object-cover lg:-right-1">
+              <img src="/images/main.png" alt="Antares screenshot" class="relative rounded-l-lg object-cover lg:-right-1">
             </video>
           </div>
         </div>
@@ -134,8 +134,10 @@ const cards = [
       Antares SQL development is driven by the idea to create a <b>full featured</b> tool,
       <b>fast</b> and with a <b>modern and intuitive UI</b>.<br>
       All features are accessible with a few clicks, without having to search for them in dozens of drop-down
-      menus; productivity comes first.`,
-    mediaPath: '/videos/video1.webm',
+      menus; productivity comes first.<br>
+      Right-click a schema to open its <b>diagram</b>: tables and foreign keys at a glance,
+      to drag around and zoom, with the relations of the selected table highlighted.`,
+    mediaPath: '/videos/schema-diagram.webm',
     mediaPosition: 'right' as 'left' | 'right',
     isVideo: true
   },
@@ -144,21 +146,23 @@ const cards = [
     subtitle: `Built-in autocomplete and database suggestions<br>
       will speed up the writing of your queries.`,
     content: `
-      Thanks to the auto-completion functions and the suggestion of database elements write queries will be a pleasure.<br>
-      With the formatter function the queries you write will be even more readable.`,
-    mediaPath: '/videos/video2.webm',
+      The query editor speaks the SQL dialect of each database and suggests tables, columns and keywords while you type.<br>
+      With the formatter (<b>Ctrl + B</b>) the queries you write will be even more readable.`,
+    mediaPath: '/videos/query-editor.webm',
     mediaPosition: 'left' as 'left' | 'right',
     isVideo: true
   },
   {
-    title: 'All data you need',
-    subtitle: `Fill your test tables<br>
-      with a massive number fake random data.`,
+    title: 'Import and export',
+    subtitle: `Move your data<br>
+      between databases with plain SQL dumps.`,
     content: `
-      Antares SQL integrates a table filling function that allows you to <b>generate a large number of fake data</b> to be chosen from different categories, such as names, addresses, dates, texts or financial data.
-      This feature will help you set up your development environment, saving you valuable time.`,
-    mediaPath: '/images/screen4.png',
-    mediaPosition: 'right' as 'left' | 'right'
+      Export a whole schema, or only the tables you need, to a <b>.sql</b> file, and import it on another connection in a few clicks,
+      with MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL.<br>
+      Antares also imports the dumps made by <b>mysqldump</b>, <b>mariadb-dump</b>, <b>pg_dump</b> and <b>pgAdmin</b>, so moving from another tool is easy.`,
+    mediaPath: '/videos/import-export.webm',
+    mediaPosition: 'right' as 'left' | 'right',
+    isVideo: true
   }
 ]
 
