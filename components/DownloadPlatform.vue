@@ -40,7 +40,7 @@
       </ul>
     </div>
 
-    <div v-if="$slots.default" class="mt-auto flex flex-wrap items-center justify-center gap-3 pt-2">
+    <div v-if="$slots.default" class="flex flex-wrap items-center justify-center gap-3 pt-2">
       <slot />
     </div>
   </section>

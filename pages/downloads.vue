@@ -23,7 +23,7 @@
           </p>
         </div>
 
-        <div class="grid gap-6 lg:grid-cols-3">
+        <div class="grid items-start gap-6 lg:grid-cols-3">
           <DownloadPlatform
             name="Windows"
             icon="windows"
