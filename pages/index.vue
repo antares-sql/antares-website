@@ -1,190 +1,262 @@
-<!-- eslint-disable tailwindcss/no-custom-classname -->
 <template>
   <main>
     <Head>
       <Title>Antares SQL | Free and Open Source Client</Title>
     </Head>
     <BasePageContent>
-      <div class="pb-10 pt-5 lg:pt-20" data-aos="fade-in" data-aos-duration="1500">
+      <!-- Hero -->
+      <section class="pb-10 pt-6 lg:pt-16" data-aos="fade-in" data-aos-duration="1500">
         <div
-          class="
-              gradient-animate
-              rounded-3xl
-              bg-gradient-to-tl
-              from-rose-400
-              via-orange-500
-              to-purple-500
-              p-6
-              dark:text-gray-50
-              lg:flex
-              lg:justify-center
-              lg:p-16
-              lg:pr-0
-            "
+          class="gradient-animate overflow-hidden rounded-3xl bg-gradient-to-tl from-rose-400 via-orange-500 to-purple-500 text-gray-50 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12 lg:py-16 lg:pl-16"
         >
-          <div class="space-y-10 py-10 text-center lg:flex lg:flex-1 lg:flex-col lg:place-content-center lg:text-left">
-            <h1 class="text-5xl font-bold dark:text-gray-50">
-              Open source SQL client<br>
-              made to be simple.
+          <div class="space-y-8 p-6 py-12 text-center lg:p-0 lg:text-left">
+            <h1 class="text-4xl font-bold leading-tight sm:text-5xl">
+              Open source SQL client <br class="hidden lg:inline">made to be simple.
             </h1>
-            <div class="text-2xl dark:text-gray-50">
-              A modern, fast and productivity driven,<br>
-              <strong class="font-bold">forever 100% free</strong> solution with a focus in UX.
+            <p class="text-xl sm:text-2xl">
+              A modern, fast and productivity driven, <br class="hidden lg:inline"><strong class="font-bold">forever 100% free</strong> solution with a focus on UX.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3 lg:justify-start">
+              <BaseButton to="/downloads" variant="light" size="lg">
+                <DownloadIcon /> Download Antares
+              </BaseButton>
+              <BaseButton to="https://github.com/antares-sql/antares" variant="ghost" size="lg">
+                <BrandGithubIcon /> GitHub
+              </BaseButton>
             </div>
-            <NuxtLink
-              to="/downloads"
-              class="
-                  m-auto
-                  flex
-                  w-fit
-                  items-center
-                  justify-center
-                  whitespace-nowrap
-                  rounded-2xl
-                  bg-gray-50
-                  px-5
-                  py-3
-                  text-2xl
-                  font-semibold
-                  text-gray-900
-                  hover:opacity-80
-                  focus:ring-2
-                  focus:ring-blue-400
-                  lg:m-0
-                "
-            >
-              <DownloadIcon class="mr-2" /> Download Antares
-            </NuxtLink>
+            <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 lg:justify-start">
+              <span class="text-sm font-medium uppercase tracking-widest text-white/80">Works with</span>
+              <span v-for="engine in engines" :key="engine.icon" :title="engine.name" class="text-white">
+                <AntaresIcon :name="`brand:${engine.icon}`" size="30" />
+                <span class="sr-only">{{ engine.name }}</span>
+              </span>
+            </div>
           </div>
-          <div class="relative hidden min-h-fit flex-1 overflow-hidden rounded-l-xl lg:block">
-            <video ref="player" muted loop>
-              <source src="/videos/main.webm" type="video/webm">
-              <img src="/images/main.png" alt="Antares screenshot" class="relative rounded-l-lg object-cover lg:-right-1">
-            </video>
+          <div class="px-6 lg:px-0">
+            <AppFrame
+              class="hidden lg:block"
+              video="/videos/main.webm"
+              poster="/images/posters/main.webp"
+              preload="metadata"
+              rounded="rounded-l-xl"
+            />
+            <AppFrame
+              class="lg:hidden"
+              poster="/images/posters/main.webp"
+              alt="Antares SQL showing the rows of a MySQL table"
+              rounded="rounded-t-xl"
+            />
           </div>
         </div>
+      </section>
+
+      <!-- About -->
+      <section class="mx-auto max-w-4xl space-y-6 py-20 text-center text-gray-50 lg:py-28" data-aos="fade-in" data-aos-duration="1500">
+        <h2 class="text-4xl font-bold sm:text-5xl">
+          About Antares Project
+        </h2>
+        <p class="text-2xl text-gray-200">
+          A new star is born, and is growing fast.
+        </p>
+        <p class="text-lg text-gray-300">
+          <a class="font-bold text-accent-500 hover:underline" href="https://en.wikipedia.org/wiki/Antares" target="_blank" rel="nofollow">Antares</a>
+          is an SQL client that aims to become a useful and complete tool, especially for developers.
+          It runs on Windows, Linux and macOS, ARM included, and works with <b class="text-gray-50">MySQL/MariaDB</b>, <b class="text-gray-50">PostgreSQL</b>,
+          <b class="text-gray-50">SQLite</b> and <b class="text-gray-50">Firebird SQL</b>; more databases are on the way.
+        </p>
+        <p class="text-lg text-gray-300">
+          Give it a try and <a class="font-bold text-accent-500 hover:underline" href="https://github.com/antares-sql/antares/discussions" target="_blank">send us your feedback</a>:
+          it shapes what comes next.
+        </p>
+      </section>
+
+      <!-- Features -->
+      <div class="space-y-16 lg:space-y-24">
+        <BaseCard
+          v-for="card in cards"
+          :key="card.title"
+          :card="card"
+          data-aos="fade-in"
+          data-aos-duration="1500"
+        />
       </div>
 
-      <div class="space-y-20 pb-16 lg:pb-40" data-aos="fade-in" data-aos-duration="1500" data-aos-delay="500">
-        <div class="space-y-5 pt-24 text-center">
-          <h2 class="text-5xl font-bold dark:text-gray-50">
-            About Antares Project
-          </h2>
-          <div class="text-2xl dark:text-gray-50">
-            A new star is born, and is growing fast.
+      <!-- Themes -->
+      <section class="py-20 lg:py-32" data-aos="fade-in" data-aos-duration="1500">
+        <div class="grid items-center gap-12 text-gray-50 lg:grid-cols-2">
+          <div class="space-y-5 text-center lg:text-left">
+            <p class="text-sm font-bold uppercase tracking-widest text-accent-500">
+              Themes
+            </p>
+            <h2 class="text-4xl font-bold">
+              Make it yours
+            </h2>
+            <p class="text-xl text-gray-200">
+              Light or dark, high contrast or your favorite editor colors.
+            </p>
+            <p class="text-lg text-gray-300">
+              Install themes from the gallery right inside the app: each one restyles the whole interface together with the code editor.
+              Want your own? Design it in the theme editor with a live preview, then share it in the gallery.
+            </p>
+            <div class="flex flex-wrap justify-center gap-3 lg:justify-start">
+              <BaseButton to="/theme-editor">
+                <AntaresIcon name="palette" size="20" /> Open the theme editor
+              </BaseButton>
+              <BaseButton to="https://github.com/antares-sql/themes" variant="secondary">
+                Browse the gallery <ExternalLinkIcon size="18" />
+              </BaseButton>
+            </div>
           </div>
-          <div class="text-lg dark:text-gray-50">
-            <a class="font-bold text-orange-500" href="https://en.wikipedia.org/wiki/Antares" target="_blank" rel="nofollow">Antares</a> is an SQL client that aims to become an useful and complete tool, especially for developers.<br>
-            The target is to support as many databases as possible, and all major operating systems, including the ARM versions.<br>
-            At the moment this application is in development state, many features will come in future updates, and currently supports <b>MySQL/MariaDB</b>, <b>PostgreSQL</b>, <b>SQLite</b> and <b>Firebird SQL</b>.<br>
-            Most of its current features are enough to have a pleasant user experience with supported databases, so give it a chance and <a class="font-bold text-orange-500" href="https://github.com/antares-sql/antares/discussions" target="_blank">send us your feedback</a>,
-            we would really appreciate it.
+          <div class="relative mx-auto aspect-[1024/800] w-full max-w-xl" aria-hidden="true">
+            <img
+              v-for="(theme, i) in themes"
+              :key="theme"
+              :src="`/images/themes/${theme}.webp`"
+              alt=""
+              loading="lazy"
+              class="absolute w-[78%] rounded-xl shadow-2xl shadow-black/60 ring-1 ring-white/10"
+              :class="themeLayout[i]"
+            >
           </div>
         </div>
-      </div>
-      <div
-        v-for="(card, i) in cards"
-        :key="i"
-        class="
-            mb-16
-            max-w-none
-            rounded-3xl
-            bg-slate-800
-            dark:text-gray-50
-            lg:mb-32
-          "
-        data-aos="fade-in"
-        data-aos-duration="1500"
-        data-aos-delay="500"
-      >
-        <BaseCard :card="card" />
-      </div>
+      </section>
+
       <BaseGrid :blocks="blocks" />
+
       <BaseStepper :steps="steps">
         <template #header>
-          <div class="space-y-5 pb-24 text-center">
-            <h2 class="text-4xl font-bold dark:text-gray-50">
+          <div class="mx-auto max-w-3xl space-y-5 pb-24 text-center text-gray-50">
+            <h2 class="text-4xl font-bold">
               Supported Databases
             </h2>
-            <div class="text-2xl dark:text-gray-50">
-              Antares SQL is in a beta phase but it fully supports MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL. SQL Server and DuckDB are the next ones, and more databases will come in future releases.
-            </div>
+            <p class="text-xl text-gray-200">
+              Antares SQL fully supports MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL.
+              SQL Server and DuckDB are the next ones, and more databases will come in future releases.
+            </p>
           </div>
         </template>
       </BaseStepper>
+
+      <!-- Closing call to action -->
+      <section class="mb-20 lg:mb-28" data-aos="fade-in" data-aos-duration="1500">
+        <div class="gradient-animate rounded-3xl bg-gradient-to-tl from-rose-400 via-orange-500 to-purple-500 p-px">
+          <div class="flex flex-col items-center gap-6 rounded-[calc(1.5rem-1px)] bg-surface px-6 py-12 text-center text-gray-50 lg:flex-row lg:justify-between lg:px-12 lg:text-left">
+            <div class="space-y-2">
+              <h2 class="text-3xl font-bold">
+                Ready to give it a try?
+              </h2>
+              <p class="text-lg text-gray-300">
+                Free forever, for Windows, Linux and macOS.
+              </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3">
+              <BaseButton to="/downloads" size="lg">
+                <DownloadIcon /> Download
+              </BaseButton>
+              <BaseButton to="https://github.com/antares-sql/antares" variant="ghost" size="lg">
+                <StarIcon /> Star on GitHub
+              </BaseButton>
+            </div>
+          </div>
+        </div>
+      </section>
     </BasePageContent>
   </main>
 </template>
+
 <script setup lang="ts">
-import type { Ref } from 'vue'
-import { ref, watch } from 'vue'
-import { useElementVisibility } from '@vueuse/core'
-import { DownloadIcon } from 'vue-tabler-icons'
+import { BrandGithubIcon, DownloadIcon, ExternalLinkIcon, StarIcon } from 'vue-tabler-icons'
+import AntaresIcon from '~/components/theme-editor/AntaresIcon.vue'
+import AppFrame from '~/components/AppFrame.vue'
+import BaseButton from '~/components/BaseButton.vue'
+import type { Card } from '~/components/BaseCard.vue'
 import BaseCard from '~/components/BaseCard.vue'
 import BaseGrid from '~/components/BaseGrid.vue'
 import type { Step } from '~/components/BaseStepper.vue'
 import BaseStepper from '~/components/BaseStepper.vue'
 
-const cards = [
+useSeoMeta({
+  ogTitle: 'Antares SQL | Free and Open Source Client',
+  ogUrl: 'https://antares-sql.app/'
+})
+
+const engines = [
+  { name: 'MySQL', icon: 'mysql' },
+  { name: 'MariaDB', icon: 'mariadb' },
+  { name: 'PostgreSQL', icon: 'postgresql' },
+  { name: 'SQLite', icon: 'sqlite' },
+  { name: 'Firebird SQL', icon: 'firebird' }
+]
+
+const cards: Card[] = [
   {
+    eyebrow: 'Schema diagram',
     title: 'Simple, but complete',
-    subtitle: `Features in the right places,<br>
-      not hundreds of tiny buttons or submenu.`,
+    subtitle: 'Features in the right places,<br> not hundreds of tiny buttons or submenus.',
     content: `
-      Antares SQL development is driven by the idea to create a <b>full featured</b> tool,
-      <b>fast</b> and with a <b>modern and intuitive UI</b>.<br>
-      All features are accessible with a few clicks, without having to search for them in dozens of drop-down
-      menus; productivity comes first.<br>
-      Right-click a schema to open its <b>diagram</b>: tables and foreign keys at a glance,
-      to drag around and zoom, with the relations of the selected table highlighted.`,
+      <p>Antares SQL is driven by the idea of a <b>full featured</b> tool, <b>fast</b> and with a <b>modern and intuitive UI</b>:
+      every feature is a few clicks away, productivity comes first.</p>
+      <p>Right-click a schema to open its <b>diagram</b>: tables and foreign keys at a glance,
+      to drag around and zoom, with the relations of the selected table highlighted.</p>`,
     mediaPath: '/videos/schema-diagram.webm',
-    mediaPosition: 'right' as 'left' | 'right',
+    poster: '/images/posters/schema-diagram.webp',
+    mediaPosition: 'right',
     isVideo: true
   },
   {
+    eyebrow: 'Query editor',
     title: 'Autocomplete or format your queries',
-    subtitle: `Built-in autocomplete and database suggestions<br>
-      will speed up the writing of your queries.`,
+    subtitle: 'Built-in autocomplete and database suggestions<br> speed up the writing of your queries.',
     content: `
-      The query editor speaks the SQL dialect of each database and suggests tables, columns and keywords while you type.<br>
-      With the formatter (<b>Ctrl + B</b>) the queries you write will be even more readable.`,
+      <p>The query editor speaks the SQL dialect of each database and suggests tables, columns and keywords while you type.</p>
+      <p>With the formatter (<b>Ctrl + B</b>) the queries you write become even more readable.</p>`,
     mediaPath: '/videos/query-editor.webm',
-    mediaPosition: 'left' as 'left' | 'right',
+    poster: '/images/posters/query-editor.webp',
+    mediaPosition: 'left',
     isVideo: true
   },
   {
-    title: 'Import and export',
-    subtitle: `Move your data<br>
-      between databases with plain SQL dumps.`,
+    eyebrow: 'Import and export',
+    title: 'Move your data around',
+    subtitle: 'Plain SQL dumps,<br> between any of your connections.',
     content: `
-      Export a whole schema, or only the tables you need, to a <b>.sql</b> file, and import it on another connection in a few clicks,
-      with MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL.<br>
-      Antares also imports the dumps made by <b>mysqldump</b>, <b>mariadb-dump</b>, <b>pg_dump</b> and <b>pgAdmin</b>, so moving from another tool is easy.`,
+      <p>Export a whole schema, or only the tables you need, to a <b>.sql</b> file and import it on another connection in a few clicks,
+      with MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL.</p>
+      <p>Antares also imports the dumps made by <b>mysqldump</b>, <b>mariadb-dump</b>, <b>pg_dump</b> and <b>pgAdmin</b>, so moving from another tool is easy.</p>`,
     mediaPath: '/videos/import-export.webm',
-    mediaPosition: 'right' as 'left' | 'right',
+    poster: '/images/posters/import-export.webp',
+    mediaPosition: 'right',
     isVideo: true
   }
 ]
 
+// Previews of gallery themes (antares-sql/themes), fanned out
+const themes = ['github', 'gruvbox', 'dracula']
+const themeLayout = [
+  'left-0 top-0 -rotate-3',
+  'right-0 top-[8%] rotate-2',
+  'bottom-0 left-[11%]'
+]
+
 const blocks = [
   {
-    title: 'FREE AND OPEN SOURCE',
-    content: 'No paid content, subscriptions or ads. Antares will be always 100% free and open source.',
+    title: 'Free and open source',
+    content: 'No paid content, subscriptions or ads. Antares will always be 100% free and open source.',
     icon: 'BrandOpenSourceIcon'
   },
   {
-    title: 'NEW FEATURES COMES',
-    content: 'Antares is a constantly developing project and we try to implement new features with each update!',
+    title: 'Always evolving',
+    content: 'Antares is a constantly developing project, and every update brings new features.',
     icon: 'CometIcon'
   },
   {
-    title: 'COMMUNITY DRIVEN',
+    title: 'Community driven',
     content: 'We pay close attention to our users\' feedback to create a useful tool for the community.',
     icon: 'SocialIcon'
   },
   {
-    title: 'PRIVATE',
-    content: 'No spyware, telemetry or other sort of background activities. Spontaneous feedbacks are enough.',
+    title: 'Private',
+    content: 'No spyware, telemetry or other background activities. Spontaneous feedback is enough.',
     icon: 'WallIcon'
   }
 ]
@@ -240,16 +312,4 @@ const steps: Step[] = [
     icons: ['database']
   }
 ]
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const player: Ref<any> = ref(null)
-const isPlayerVisible = useElementVisibility(player)
-
-watch(isPlayerVisible, (val) => {
-  if (val) {
-    player.value.play()
-  } else {
-    player.value.pause()
-  }
-})
 </script>
