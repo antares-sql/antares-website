@@ -28,7 +28,7 @@ They live next to this one (`../antares`, `../antares-nightly`) and are the sour
 
 ## Layout
 
-```
+```text
 app.vue                  Root: forces the dark theme, JSON-LD, AOS init; pages with definePageMeta({ bare: true }) skip header/footer
 pages/
   index.vue              Home: hero video, About, feature cards (BaseCard), value blocks (BaseGrid), supported databases (BaseStepper)
@@ -36,15 +36,17 @@ pages/
   theme-editor.vue       Web theme editor (bare page, its own look: it mirrors the app)
   [...slug].vue          Markdown pages from content/, plus 301 redirects of old URLs
 components/
-  Base*.vue              Site building blocks (see DESIGN.md)
-  The*.vue               Header and footer
+  Base*.vue              Site building blocks: BaseButton, BaseCard, BaseGrid, BaseStepper, page containers (see DESIGN.md)
+  AppFrame.vue           Framed app video/screenshot (poster, plays while visible)
+  DownloadPlatform.vue   Download column of one OS
+  The*.vue               Header (sticky) and footer
   theme-editor/          Theme editor parts; AntaresIcon.vue draws the app icon set
 content/                 Markdown pages (about.md, _privacy.md); _doc/ is excluded from the collection
 libs/
   getOS.ts               Visitor OS, to highlight the right download column
   themeEditor/           Theme editor state, labels, samples; icons.json is GENERATED from the app (see below)
 modules/sitemap.ts       Writes sitemap.xml after prerender (excludes the theme editor)
-public/                  Static files: videos/ (home media), images/, favicon, CNAME
+public/                  Static files: videos/ (home media), images/ (posters/, themes/, og.png), favicon, CNAME
 scripts/videos/          Recorder of the home videos (see below)
 ```
 
@@ -104,6 +106,9 @@ node scripts/videos/sheet.cjs public/videos/main.webm 2   # contact sheet PNG to
 ```
 
 - **Review every take** with the contact sheet before committing it: timing, cut-off elements, unwanted popups.
+- **Update the poster** of a re-recorded video (`public/images/posters/<name>.webp`): extract a meaningful frame with the Playwright
+  ffmpeg (`-ss <seconds> -frames:v 1 frame.png`) and convert it to WebP (quality ~0.8, e.g. through a canvas in Chrome).
+  The hero poster also appears in `public/images/og.png`.
 - **No personal data on screen**: neutral connection names, no paths with the account name (the import/export scene answers the
   file dialogs with `C:\Users\Public\antares-demo`), no real hosts.
 - Default theme, window 1280×800 content size. Each video is about 12–22 s and below 2 MB.
@@ -113,8 +118,8 @@ node scripts/videos/sheet.cjs public/videos/main.webm 2   # contact sheet PNG to
 
 ## Conventions
 
-- **Commits**: Conventional Commits with a scope (`feat(downloads): ...`, `fix(home): ...`), in English. One branch per piece of work
-  (`feat/...`, `fix/...`) merged into `master`. Deploying is a separate, manual step.
+- **Commits**: Conventional Commits with a scope (`feat(downloads): ...`, `fix(home): ...`), in English. Single maintainer:
+  no branch ceremony is needed, committing on the current branch is fine. Pushing and deploying are manual steps the maintainer decides.
 - **Code**: 2 spaces, no semicolons, single quotes (as the existing files). Comments and UI text in English.
 - **Tailwind**: utility classes in the template; custom classes only when a utility can't express it
   (`eslint-plugin-tailwindcss` flags unknown classes, the theme editor is exempt). Don't use classes of a palette that does not exist
