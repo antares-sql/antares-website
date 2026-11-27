@@ -355,6 +355,28 @@
             </div>
           </div>
         </div>
+        <div class="mb-16 space-y-2 rounded-3xl bg-slate-800 p-6 text-center dark:text-gray-50">
+          <h4 class="text-2xl font-bold">
+            Nightly builds
+          </h4>
+          <p>
+            Built every night from the <code>develop</code> branch, they let you try the latest features before they are released.
+            They are <strong>untested</strong> and may be unstable: for everyday use, prefer the stable version.
+          </p>
+          <p>
+            Antares Nightly is a separate app with its own settings: it installs side by side with the stable version and auto-updates to newer nightlies.
+            <template v-if="latestNightly?.name">
+              Latest: <strong>{{ latestNightly.name }}</strong>.
+            </template>
+          </p>
+          <NuxtLink
+            to="https://github.com/antares-sql/antares-nightly/releases"
+            target="_blank"
+            class="inline-flex items-center gap-1 font-semibold text-orange-500 hover:opacity-80"
+          >
+            All nightly builds <ExternalLinkIcon size="18" />
+          </NuxtLink>
+        </div>
       </BasePageContent>
     </main>
   </div>
@@ -366,7 +388,10 @@ import { ref } from 'vue'
 import { DownloadIcon, ExternalLinkIcon } from 'vue-tabler-icons'
 import getOS from '~/libs/getOS'
 type ReleaseInfo = { name:string, browser_download_url : string };
-const { data: releases } = await useFetch<{name: string, assets: ReleaseInfo[], prerelease: boolean}[]>('https://api.github.com/repos/antares-sql/antares/releases', { server: false })
+type Release = { name: string, tag_name: string, assets: ReleaseInfo[], prerelease: boolean }
+const { data: releases } = await useFetch<Release[]>('https://api.github.com/repos/antares-sql/antares/releases', { server: false })
+// Nightly builds of the develop branch (Windows and Linux x64 only), published by antares-sql/antares-nightly
+const { data: latestNightly } = await useFetch<Release>('https://api.github.com/repos/antares-sql/antares-nightly/releases/latest', { server: false })
 
 const os: Ref<string> = ref(getOS())
 const latestStable = computed(() => {
@@ -407,6 +432,13 @@ const linuxReleases = computed(() => {
       arch: '64-bit',
       format: 'AppImage',
       version: 'beta'
+    },
+    {
+      code: 'nightly-amd64',
+      data: latestNightly.value?.assets?.find(asset => /x86_64\.AppImage$/.test(asset.browser_download_url)) as ReleaseInfo,
+      arch: '64-bit',
+      format: 'AppImage',
+      version: 'nightly'
     }
   ].filter(rel => rel.data)
 })
@@ -440,6 +472,13 @@ const windowsReleases = computed(() => {
       arch: '64-bit',
       format: 'portable.exe',
       version: 'beta'
+    },
+    {
+      code: 'nightly-amd64',
+      data: latestNightly.value?.assets?.find(asset => /win_x64\.exe$/.test(asset.browser_download_url)) as ReleaseInfo,
+      arch: '64-bit',
+      format: 'exe',
+      version: 'nightly'
     }
   ].filter(rel => rel.data)
 })
