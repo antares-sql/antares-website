@@ -26,7 +26,8 @@ export default defineNuxtModule({
         const isExcluded = EXCLUDED_PATHS.some(path => route.route.startsWith(path))
 
         if (isPage && !route.error && !isExcluded) {
-          paths.push(route.route)
+          // GitHub Pages redirects /about to /about/: list the final URLs
+          paths.push(route.route.replace(/\/?$/, '/'))
         }
       })
 

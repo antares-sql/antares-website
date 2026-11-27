@@ -16,15 +16,26 @@ import BasePageContainer from './components/BasePageContainer.vue'
 
 const route = useRoute()
 
+const siteUrl = 'https://antares-sql.app'
+const description = 'Antares SQL is a modern, fast and productivity driven SQL client for MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL, forever 100% free and open source.'
+
+// GitHub Pages serves every page at its trailing-slash URL (the others are 301 redirects)
+const canonicalUrl = computed(() => siteUrl + route.path.replace(/\/?$/, '/'))
+
 const structuredData = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'Antares SQL',
-  operatingSystem: 'Windows 10, Windows 7, Linux, OSX',
+  description,
+  url: `${siteUrl}/`,
+  image: `${siteUrl}/images/og.png`,
+  downloadUrl: `${siteUrl}/downloads/`,
+  operatingSystem: 'Windows, Linux, macOS',
   applicationCategory: 'DeveloperApplication',
   offers: {
     '@type': 'Offer',
-    price: '0'
+    price: '0',
+    priceCurrency: 'USD'
   },
   sameAs: [
     'https://antares-sql.app',
@@ -45,6 +56,9 @@ const structuredData = JSON.stringify({
 })
 
 useHead({
+  link: [
+    { rel: 'canonical', href: canonicalUrl }
+  ],
   script: [
     {
       type: 'application/ld+json',
@@ -58,9 +72,11 @@ useHead({
   ]
 })
 
-// Defaults for link previews; pages override the description
+// Defaults for link previews; pages override the description and the titles
 useSeoMeta({
-  description: 'Antares SQL is a modern, fast and productivity driven SQL client for MySQL/MariaDB, PostgreSQL, SQLite and Firebird SQL, forever 100% free and open source.',
+  description,
+  ogDescription: description,
+  ogUrl: canonicalUrl,
   ogSiteName: 'Antares SQL',
   ogType: 'website',
   ogImage: 'https://antares-sql.app/images/og.png',

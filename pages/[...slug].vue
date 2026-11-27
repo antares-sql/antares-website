@@ -20,26 +20,28 @@
 import NotFound from '~/components/NotFound.vue'
 
 const route = useRoute()
+// GitHub Pages serves the pages at /about/, the content paths have no trailing slash
+const path = route.path.replace(/(.)\/$/, '$1')
 
 // Redirect old pages
 const redirects: Record<string, string> = {
-  '/download.html': '/downloads',
-  '/privacy.html': '/_privacy'
+  '/download.html': '/downloads/',
+  '/privacy.html': '/_privacy/'
 }
-if (redirects[route.path]) {
-  await navigateTo(redirects[route.path], { redirectCode: 301 })
+if (redirects[path]) {
+  await navigateTo(redirects[path], { redirectCode: 301 })
 }
 
-const { data: page } = await useAsyncData(`page-${route.path}`, () =>
-  queryCollection('pages').path(route.path).first()
+const { data: page } = await useAsyncData(`page-${path}`, () =>
+  queryCollection('pages').path(path).first()
 )
 
-useHead(() => ({
-  title: page.value?.head?.title || page.value?.title,
-  meta: page.value?.description
-    ? [{ name: 'description', content: page.value.description }]
-    : []
-}))
+useSeoMeta({
+  title: () => page.value?.head?.title || page.value?.title,
+  ogTitle: () => page.value?.fullTitle || page.value?.title,
+  description: () => page.value?.description || undefined,
+  ogDescription: () => page.value?.description || undefined
+})
 </script>
 <style lang="scss">
 .prose {

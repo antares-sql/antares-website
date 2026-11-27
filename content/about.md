@@ -2,8 +2,9 @@
 title: About
 fullTitle: About Antares SQL
 author: Fabio Di Stasio
+description: The story behind Antares SQL, a free and open source SQL client born out of passion, and how you can contribute to the project.
 head:
-   title: About Antares SQL | Free and Open Source Client
+   title: About Antares SQL | Free and Open Source SQL Client
 ---
 
 ## Behind the scenes

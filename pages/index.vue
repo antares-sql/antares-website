@@ -1,7 +1,7 @@
 <template>
   <main>
     <Head>
-      <Title>Antares SQL | Free and Open Source Client</Title>
+      <Title>Antares SQL | Free and Open Source SQL Client</Title>
     </Head>
     <BasePageContent>
       <!-- Hero -->
@@ -176,8 +176,7 @@ import BaseStepper from '~/components/BaseStepper.vue'
 import SectionHeader from '~/components/SectionHeader.vue'
 
 useSeoMeta({
-  ogTitle: 'Antares SQL | Free and Open Source Client',
-  ogUrl: 'https://antares-sql.app/'
+  ogTitle: 'Antares SQL | Free and Open Source SQL Client'
 })
 
 const engines = [

@@ -2,8 +2,9 @@
 navigation: false
 title: Privacy
 fullTitle: Privacy Policy
+description: Antares SQL collects no personal data or usage statistics, and the antares-sql.app website collects no data and uses no cookies.
 head:
-   title: Privacy Policy | Free and Open Source Client
+   title: Privacy Policy | Antares SQL
 ---
 
 ## Application

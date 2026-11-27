@@ -1,7 +1,7 @@
 <template>
   <div>
     <Head>
-      <Title>Downloads | Free and Open Source Client</Title>
+      <Title>Download Antares SQL | Free and Open Source SQL Client</Title>
     </Head>
     <main>
       <BasePageContent>
@@ -106,10 +106,11 @@ import type { DownloadGroup, DownloadRow } from '~/components/DownloadPlatform.v
 import DownloadPlatform from '~/components/DownloadPlatform.vue'
 import getOS from '~/libs/getOS'
 
+const description = 'Download Antares SQL for Windows, Linux and macOS: installers, portable, AppImage, deb, store packages, plus beta and nightly builds.'
 useSeoMeta({
-  description: 'Download Antares SQL for Windows, Linux and macOS: installers, portable, AppImage, deb, store packages, plus beta and nightly builds.',
-  ogTitle: 'Download Antares SQL',
-  ogUrl: 'https://antares-sql.app/downloads'
+  description,
+  ogDescription: description,
+  ogTitle: 'Download Antares SQL'
 })
 
 type Asset = { name: string, browser_download_url: string }

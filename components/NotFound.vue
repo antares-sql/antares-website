@@ -1,7 +1,8 @@
 <template>
   <div class="overflow-hidden">
     <Head>
-      <Title>Error 404</Title>
+      <Title>Page not found | Antares SQL</Title>
+      <Meta name="robots" content="noindex" />
     </Head>
     <BasePageContent>
       <div class="-mt-24 flex h-screen items-center justify-center">

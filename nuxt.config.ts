@@ -9,12 +9,19 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
+      htmlAttrs: { lang: 'en' },
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     }
   },
   compatibilityDate: '2026-11-22',
+  experimental: {
+    defaults: {
+      // GitHub Pages answers /downloads with a 301 to /downloads/: link the final URL directly
+      nuxtLink: { trailingSlash: 'append' }
+    }
+  },
   postcss: {
     plugins: {
       // Not used (nesting is handled by Sass) and not loadable as ESM from Tailwind v3
